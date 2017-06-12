@@ -1,0 +1,126 @@
+/*style.css*/
+
+/*admin area*/
+.affix-top {
+    background: rgb(40,60,60);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 51px;
+    width: 16.7%;
+    z-index: 9999;
+    transition: all .2s ease 0s;
+}
+
+.affix {
+    background: rgb(40,60,60);
+    height: 100%;
+    left: 0;
+    position: fixed;
+    width: 16.7%;
+    z-index: 9999;
+    top: 0;
+    transition: all .2s ease 0s;
+}
+
+.position_sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.position_sidebar .menu li {
+    background: tomato none repeat scroll 0 0;
+    float: left;
+    position: relative;
+    width: 100%;
+}
+
+/* 
+ active color
+*/
+.position_sidebar ul li .active {
+    background-color: #41a430 !important;
+}
+.active::after {
+    border-bottom: 7px solid transparent;
+    border-right: 8px solid #dff0d8;
+    border-top: 7px solid transparent;
+    content: "";
+    height: 0;
+    position: absolute;
+    right: 0;
+    top: 7px;
+    width: 0;
+    z-index: 999;
+}
+
+
+/*
+url mouser color
+*/
+
+.position_sidebar ul li a:hover{
+	background : rgba(35, 186, 0, 0.5) none repeat scroll 0 0;
+}
+
+.position_sidebar .menu li a {
+    background: rgba(35, 250, 0, 0.5) none repeat scroll 0 0;
+    color: #fff;
+    border-bottom: 1px solid #000;
+    display: block;
+    padding: 5px 10px;
+}
+
+.position_sidebar .sub_menu li {
+    border: medium none;
+    list-style: outside none none;
+
+}
+
+.position_sidebar .sub_menu li a{
+	padding-left: 10px; 
+}
+
+.position_sidebar .sub_menu li {
+    background-color: #a60101;
+    border: medium none;
+}
+
+
+.position_sidebar .menu li a:hover{
+	text-decoration: none;
+}
+
+.position_sidebar .sub_menu li{
+	border: none;
+}
+
+
+.local {
+    float: right;
+}
+
+.dropdown {
+	cursor: pointer;
+}
+/* padding and margin*/
+
+.padding {
+    padding: 0 !important; 
+}
+.margin{
+    margin: 0 !important;
+}
+
+.success {
+    background-image: linear-gradient(#dff0d8 100%, #c8e5bc 100%);
+    border-color: #b2dba1;
+}
+
+.red{
+    color: #f00 !important;
+}
+
+.form-margin-top {
+    margin-top: 15px;
+}
