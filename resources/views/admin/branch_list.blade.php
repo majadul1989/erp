@@ -5,18 +5,21 @@
     @include('layouts.admin_sidebar')
         <div class="col-md-10">
                <form class="form-group form-margin-top">
-                    <div class="col-sm-9 padding">
+                    <div class="col-sm-8 padding">
                         <input class="form-control" id="disabledInput" name="search" type="text" placeholder="Search...">
                     </div> 
                     <div class="col-sm-1 padding">   
-                 <button type="submit" class="btn btn-default col-sm-10"><span class="glyphicon glyphicon-search"></span> Search</button>
-                 </div> 
-                 <div class="col-sm-1 padding"> 
+                 <button type="submit" class="btn btn-default col-sm-12"><span class="glyphicon glyphicon-search"></span> Search</button>
+                 </div>
+                 <div class="col-md-3">
+                 <div class="col-sm-6 padding"> 
                  <button type="submit" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download </button>
+                 </div>
+                 
+                 <div class="col-sm-6"> 
+                 <button type="submit" class="btn btn-primary col-sm-11"> <span class="glyphicon glyphicon glyphicon-print"></span> Print</button>
                  </div> 
-                 <div class="col-sm-1 padding"> 
-                 <button type="submit" class="btn btn-primary col-sm-12"> <span class="glyphicon glyphicon glyphicon-print"></span>Print</button>
-                 </div> 
+                 </div> <!-- col-md-3 -->
                </form>
                 <div class="clear" style="clear: both;"></div>
                <table class="table form-margin-top">
@@ -30,7 +33,9 @@
                        <th>Create Date</th>
                        <th>Action</th>
                    </tr>
-                   <?php print_r($branch_list); ?>
+                   <?php echo "<pre>";
+                   print_r($branch_list); ?>
+            
                    <tr>
                        <td>01</td>
                        <td>Mirpur-10</td>
