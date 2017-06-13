@@ -15,4 +15,8 @@ public function index(){
 	return view('admin.branch_list')->with('branch_list',$branch_list);
 }
 
+public function edit($id){
+		echo $id;
+}
+
 }

@@ -3,6 +3,7 @@
 <div class="container-fluid">
     <div class="row">
     @include('layouts.admin_sidebar')
+    @include('admin.branch_edit')
         <div class="col-md-10">
                <form class="form-group form-margin-top">
                     <div class="col-sm-8 padding">
@@ -33,45 +34,57 @@
                        <th>Create Date</th>
                        <th>Action</th>
                    </tr>
-                   <?php echo "<pre>";
-                   print_r($branch_list); ?>
-            
-                   <tr>
-                       <td>01</td>
-                       <td>Mirpur-10</td>
-                       <td>01918305499</td>
-                       <td>mirpur@gmail.com</td>
-                       <td>Mirpur -10, Mirpur</td>
-                       <td>Triple-MMM</td>
-                       <td>2017-06-07 05:06:41</td>
-
-                       <td><a href="#">Edit</a> || <a href="#">Delete</a></td>
-                   </tr>
-                   <tr>
-                       <td>02</td>
-                       <td>Mirpur-10</td>
-                       <td>01918305499</td>
-                       <td>mirpur@gmail.com</td>
-                       <td>Mirpur -10, Mirpur</td>
-                       <td>Triple-MMM</td>
-                       <td>2017-06-07 05:06:41</td>
-
-                       <td><a href="#">Edit</a> || <a href="#">Delete</a></td>
-                       
-                   </tr>
-                   <tr>
-                       <td>02</td>
-                       <td>Mirpur-10</td>
-                       <td>01918305499</td>
-                       <td>mirpur@gmail.com</td>
-                       <td>Mirpur -10, Mirpur</td>
-                       <td>Triple-MMM</td>
-                       <td>2017-06-07 05:06:41</td>
-                       <td><a href="#">Edit</a> || <a href="#">Delete</a></td>
-                       
-                   </tr>
+                   <?php $sl = 1; ?>
+                    @foreach ($branch_list as $key => $branch)
+                      <tr>
+                          <td>{{$sl++}}</td>
+                          <td>{{$branch->branch_name}}</td>
+                          <td>{{$branch->branch_email}}</td>
+                          <td>{{$branch->branch_phone}}</td>
+                          <td>{{$branch->branch_address}}</td>
+                          <td>{{$branch->name}}</td>
+                          <td>{{$branch->created_at}}</td>
+                          <td>
+                          <a onclick="edit({{$branch->branch_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
+                          || <a href="#">Delete</a></td>
+                      </tr>
+                    @endforeach
                </table>
-        </div>
-    </div>
+
+
+<script type="text/javascript">
+function edit(id){
+  alert(id);
+}
+  $(function() {
+      $('#favoritesModal').on("show.bs.modal", function (e) {
+      });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
 </div>
 @endsection

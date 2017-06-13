@@ -14,7 +14,6 @@
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/jquery-2.2.3.min.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script>
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
     <!-- branch validation js -->
     <script src="{{ asset('js/branch.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -85,8 +84,6 @@
         </nav>
         @yield('content')
     </div>
-    <!-- <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap.min.js') }}"></script> -->
-    <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrapValidator.js') }}"></script>
 
 

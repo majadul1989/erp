@@ -8,7 +8,7 @@
     position: fixed;
     top: 51px;
     width: 16.7%;
-    z-index: 9999;
+    z-index: 99;
     transition: all .2s ease 0s;
 }
 
