@@ -124,3 +124,12 @@ url mouser color
 .form-margin-top {
     margin-top: 15px;
 }
+
+/*Loading Images style*/
+
+.loadimg {
+    left: 41%;
+    position: fixed;
+    top: 27%;
+    z-index: 9999;
+}

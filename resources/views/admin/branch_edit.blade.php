@@ -1,3 +1,8 @@
+ 
+  {{$return_data.branch_id}}
+
+
+<!-- BOOTSTRAP MODEL -->
  <div class="modal fade" id="favoritesModal" 
       tabindex="-1" role="dialog" 
       aria-labelledby="favoritesModalLabel">
@@ -31,3 +36,5 @@
      </div>
    </div>
  </div>
+
+<!-- BOOTSTRAP MODEL -->
