@@ -17,7 +17,7 @@ Route::group(['middleware'=>'auth'],function(){
 Route::get('/Add_Branch','Add_Branch@index');
 Route::post('/insert','Add_Branch@insert');
 Route::get('/Branch_list','Branch_list@index');
-Route::get('/edit/{id}','Branch_list@edit');
+Route::get('/edit','Branch_list@edit');
 
 });
 Auth::routes();

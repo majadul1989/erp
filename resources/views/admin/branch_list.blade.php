@@ -48,13 +48,23 @@
                           <a onclick="edit({{$branch->branch_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
                           || <a href="#">Delete</a></td>
                       </tr>
+<div id="result">fg</div>
                     @endforeach
                </table>
 
-
 <script type="text/javascript">
-function edit(id){
-  alert(id);
+function edit(edit_id){
+  var edit_id = 'edit_id='+edit_id;
+  var url = "{{url('/edit')}}";
+  $.ajax({
+    type: "GET",
+    url: url,
+    data: edit_id,
+    success:function(data){
+    // alert(data);
+    $("#result").html(data).show();
+    }
+  });
 }
   $(function() {
       $('#favoritesModal').on("show.bs.modal", function (e) {
