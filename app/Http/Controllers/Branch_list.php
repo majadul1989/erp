@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Branches;
 use App\User;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
@@ -35,6 +36,10 @@ public function edit(Request $Request){
 	 // return Response::eloquent($branches);
 	// return View('admin.branch_edit', compact('return_data'));
 	
+}
+
+public function update(){
+	return Redirect::back()->with('message','Operation Successful !');
 }
 
 }

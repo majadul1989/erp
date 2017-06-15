@@ -14,10 +14,14 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::group(['middleware'=>'auth'],function(){
+// Branch ADD and Create and Read controller CR 
 Route::get('/Add_Branch','Add_Branch@index');
 Route::post('/insert','Add_Branch@insert');
+// Branch List update  and delete controller UD 
 Route::get('/Branch_list','Branch_list@index');
 Route::get('/edit','Branch_list@edit');
+Route::get('/update','Branch_list@update');
+
 
 });
 Auth::routes();

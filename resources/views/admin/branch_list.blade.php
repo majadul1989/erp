@@ -4,7 +4,12 @@
     <div class="row">
     @include('layouts.admin_sidebar')
         <div class="col-md-10">
-
+    @if (session('message'))
+        <div class="alert alert-success">
+            {{ session('message') }}
+        </div>
+    @endif
+        
                <form class="form-group form-margin-top">
                     <div class="col-sm-8 padding">
                         <input class="form-control" id="disabledInput" name="search" type="text" placeholder="Search...">
@@ -23,151 +28,7 @@
                  </div> <!-- col-md-3 -->
                </form>
 
-               <!-- BOOTSTRAP MODEL -->
-                <div class="modal fade" id="favoritesModal" 
-                     tabindex="-1" role="dialog" 
-                     aria-labelledby="favoritesModalLabel">
-                  <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" 
-                          data-dismiss="modal" 
-                          aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
-                        <h2 class="modal-title" 
-                        id="favoritesModalLabel" class="branch_info"></h2>
-                      </div>
-                      <div class="modal-body">
-
-                       <form class="form-horizontal" action="{{url('/insert')}}" id="contact_form" role="form" method="POST">
-                       <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-                       <fieldset>
-                       <!-- Success message -->
-
-                       <!-- Text input-->
-                       <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
-                               <label class="col-md-3 control-label">Branch Name</label>
-                           <div class="col-md-7 inputGroupContainer">
-                               <div class="input-group">
-                                   <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                       <input id="branch_name" type="text" class="form-control" name="branch_name" value="{{ old('branch_name') }}"  autofocus required>
-                               </div>
-                                   @if ($errors->has('branch_name')) <!-- show error --> 
-                                       <span class="help-block red">
-                                           <strong>{{ $errors->first('branch_name') }}</strong>
-                                       </span>
-                                   @endif
-                           </div>
-                       </div>
-
-
-                       <!-- Text input-->
-                       <div class="form-group {{ $errors->has('branch_email') ? ' has-error' : '' }}">
-                             <label class="col-md-3 control-label">Branch E-Mail</label>  
-                           <div class="col-md-7 inputGroupContainer">
-                               <div class="input-group">
-                                   <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                   <input name="branch_email" placeholder="E-Mail Address" class="form-control" value="{{ old('branch_email') }}" type="text" autofocus required>
-                               </div>
-                               @if ($errors->has('branch_email')) <!-- show error --> 
-                                   <span class="help-block red">
-                                       <strong>{{ $errors->first('branch_email') }}</strong>
-                                   </span>
-                               @endif
-                           </div>
-                       </div>
-
-
-                       <!-- Text input-->
-                              
-                       <div class="form-group {{ $errors->has('branch_phone') ? ' has-error' : '' }}">
-                         <label class="col-md-3 control-label">Branch Phone #</label>  
-                           <div class="col-md-7 inputGroupContainer">
-                           <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                         <input name="branch_phone" placeholder="01xxxxxxxxx" class="form-control" type="text" autofocus required value="{{ old('branch_phone') }}">
-                           </div>
-                           @if ($errors->has('branch_phone')) <!-- show error --> 
-                               <span class="help-block red">
-                                   <strong>{{ $errors->first('branch_phone') }}</strong>
-                               </span>
-                           @endif
-                         </div>
-                       </div>
-
-                      
-                       <!-- Text area -->
-                         
-                       <div class="form-group {{ $errors->has('branch_address') ? ' has-error' : '' }}">
-                         <label class="col-md-3 control-label">Address</label>
-                           <div class="col-md-7 inputGroupContainer">
-                           <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                               <textarea class="form-control" name="branch_address"  placeholder="Project Description" autofocus required> {{ old('branch_address') }}</textarea>
-                         </div>
-                         @if ($errors->has('branch_address')) <!-- show error --> 
-                             <span class="help-block red">
-                                 <strong>{{ $errors->first('branch_address') }}</strong>
-                             </span>
-                         @endif
-                         </div>
-                       </div> 
-
-                       <!-- Text input-->
-                        
-                       <div class="form-group {{ $errors->has('branch_city') ? ' has-error' : '' }}">
-                         <label class="col-md-3 control-label">Branch City</label>  
-                           <div class="col-md-7 inputGroupContainer">
-                           <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                         <input name="branch_city" value="{{ old('branch_city') }}" placeholder="branch_city" class="form-control"  type="text" autofocus required>
-                           </div>
-                           @if ($errors->has('branch_city')) <!-- show error --> 
-                               <span class="help-block red">
-                                   <strong>{{ $errors->first('branch_city') }}</strong>
-                               </span>
-                           @endif
-                         </div>
-                       </div>
-
-
-                       <!-- Text area -->
-                         
-                       <div class="form-group {{ $errors->has('branch_description') ? ' has-error' : '' }}">
-                         <label class="col-md-3 control-label">Project Description</label>
-                           <div class="col-md-7 inputGroupContainer">
-                           <div class="input-group">
-                               <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                                   <textarea class="form-control" name="branch_description" placeholder="Project Description">{{ old('branch_description') }}</textarea>
-                         </div>
-                         @if ($errors->has('branch_description')) <!-- show error --> 
-                             <span class="help-block red">
-                                 <strong>{{ $errors->first('branch_description') }}</strong>
-                             </span>
-                         @endif
-                         </div>
-                       </div>
-                       <hr>
-                       <!-- Button -->
-                       <div class="form-group">
-                         <label class="col-md-6 control-label"></label>
-                         <div class="col-md-6">
-                           <button type="submit" data-dismiss="modal" class="btn btn-primary col-md-4" >Send <span class="glyphicon glyphicon-send"></span></button>
-                           <label class="col-md-1 control-label"></label>
-                           <button type="reset" class="btn btn-danger col-md-4" >Cancel  <span class="glyphicon glyphicon-remove"></span></button>
-                         </div>
-                         </div>
-                       </fieldset>
-                        </form>
-
-                      </div> <!-- modal-body -->
-
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-               <!-- BOOTSTRAP MODEL -->
+              @include('admin.branch_edit')
                 <div class="clear" style="clear: both;"></div>
                <table class="table form-margin-top">
                    <tr class="bnt btn-success ">
@@ -210,18 +71,20 @@ function edit(edit_id){
     url: url,
     data: edit_id,
     success:function(data){
-    // alert(data);
+    $(".loadimg").fadeOut();
     $("#branch_name").val(data.branch_name);
+    $("#branch_email").val(data.branch_email);
+    $("#branch_phone").val(data.branch_phone);
+    $("#branch_address").val(data.branch_address);
+    $("#branch_city").val(data.branch_city);
+    $("#branch_description").val(data.branch_description);
     $("#favoritesModalLabel").html('Information of <b><i>'+ data.branch_name+'</b></i>').show();
 
-    $(".loadimg").fadeOut(0);
+   
     }
   });
 }
-  $(function() {
-      $('#favoritesModal').on("show.bs.modal", function (e) {
-      });
-  });
+
 </script>
 
 
