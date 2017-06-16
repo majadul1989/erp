@@ -50,10 +50,10 @@
                           <td>{{$branch->branch_phone}}</td>
                           <td>{{$branch->branch_address}}</td>
                           <td>{{$branch->name}}</td>
-                          <td>{{$branch->created_at}}</td>
+                          <td>{{$branch->branch_create_date}}</td>
                           <td>
                           <a onclick="edit({{$branch->branch_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
-                          || <a href="#">Delete</a></td>
+                          || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/delete/').'/'.$branch->branch_id}}">Delete</a></td>
                       </tr>
                     @endforeach
 
@@ -62,6 +62,7 @@
 <img style="display: none;" class="loadimg"src="{{ asset('/img/load.gif') }}">
 
 <script type="text/javascript">
+window.urls=0;
 function edit(edit_id){
     $(".loadimg").show();
   var edit_id = 'edit_id='+edit_id;
@@ -72,6 +73,13 @@ function edit(edit_id){
     data: edit_id,
     success:function(data){
     $(".loadimg").fadeOut();
+
+    if(window.urls==0){
+       window.urls=$("#branch_id").attr("action");
+    }
+
+    $("#branch_id").attr("action",window.urls+"/"+data.branch_id);
+    $("#branch_id").val(data.branch_id);
     $("#branch_name").val(data.branch_name);
     $("#branch_email").val(data.branch_email);
     $("#branch_phone").val(data.branch_phone);
@@ -79,6 +87,7 @@ function edit(edit_id){
     $("#branch_city").val(data.branch_city);
     $("#branch_description").val(data.branch_description);
     $("#favoritesModalLabel").html('Information of <b><i>'+ data.branch_name+'</b></i>').show();
+    console.log();
 
    
     }

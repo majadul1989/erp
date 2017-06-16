@@ -58,8 +58,8 @@ $db = DB::table('branches')->insert(
         'branch_city' => $branch_city,
         'branch_description' => $branch_description,
         'user_id' => $userId,
-        'created_at' => $created_at,
-        'updated_at' => $created_at,
+        'branch_create_date' => $created_at,
+        'branch_update_date' => $created_at,
 
         ]
     );

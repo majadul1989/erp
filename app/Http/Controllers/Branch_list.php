@@ -38,8 +38,23 @@ public function edit(Request $Request){
 	
 }
 
-public function update(){
-	return Redirect::back()->with('message','Operation Successful !');
+public function update($branch_edit_id){
+	$branches = DB::table('Branches')
+			 			->where('branch_id', $branch_edit_id)
+						->first();
+	print_r($branches);
+
+	//return Redirect::back()->with('message','Operation Successful !');
+}
+
+public function delete($branch_delete_id){
+					$delete = DB::table('Branches')
+			 			->where('branch_id', $branch_delete_id)
+						->first();    
+					// $user->delete();
+					// print_r($delete);
+
+	return Redirect::back()->with('message','Branch Deleted !');
 }
 
 }

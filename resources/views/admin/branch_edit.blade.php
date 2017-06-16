@@ -13,8 +13,8 @@
                         id="favoritesModalLabel" class="branch_info"></h2>
                       </div>
                       <div class="modal-body">
-
-                       <form class="form-horizontal" action="{{url('/update')}}" id="contact_form" role="form" method="GET">
+                    <!--  -->
+                       <form id="branch_id" class="form-horizontal" action="{{url('/update/')}}" id="contact_form" role="form" method="POST">
                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                        <fieldset>
                        <!-- Success message -->
