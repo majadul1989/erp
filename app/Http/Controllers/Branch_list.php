@@ -142,10 +142,12 @@ public function downloadExcel(Request $request, $type)
 }
 
 // print functions
-public function print(){
+public function print(Request $request){
+
 $Branches = Branches::all();
 $pdf = PDF::loadView('admin.Add_Branch', ['Branches' => $Branches]);
-return $pdf->download('Branches.pdf');
+print_r($pdf);
+// return $pdf->download('Branches.pdf');
 }
 
 } //end of Branch_list controller
