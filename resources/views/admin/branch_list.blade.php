@@ -30,7 +30,7 @@
       <a href="{{url('/downloadExcel/csv')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
       </div>
       <div class="col-sm-3"> 
-      <a tabindex="0" aria-controls="example" class="btn btn-primary col-sm-11"> <span class="glyphicon glyphicon glyphicon-print"></span> Print</a>
+      <a href="{{url('/print')}}" class="btn btn-primary col-sm-11"> <span class="glyphicon glyphicon glyphicon-print"></span> Print</a>
       </div> 
   </div> <!-- col-md-3 -->
 </form>
@@ -98,16 +98,6 @@ function edit(edit_id){
 }
 
 // Print functions here
-
-$(document).ready(function() {
-    $('#example').DataTable( {
-        dom: 'Bfrtip',
-        buttons: [
-            'print'
-        ]
-    } );
-} );
-
 
 
 </script>

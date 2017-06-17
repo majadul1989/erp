@@ -5,6 +5,7 @@ use App\Branches;
 use App\User;
 use DB;
 use Excel;
+use PDF;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
@@ -128,32 +129,24 @@ public function delete($branch_delete_id){
 // Download Excel sheet functions
 
 public function downloadExcel(Request $request, $type)
-
 {
-
-	$data = Branches::get()->toArray([
-		'branch_name' => "sadfsadf",
-		'branch_name' => "sadfsadf",
-		'branch_name' => "sadfsadf",
-		'branch_name' => "sadfsadf",
-		]);
-
+	$data = Branches::get()->toArray();
 	return Excel::create('Branch List', function($excel) use ($data) {
-
 		$excel->sheet('mySheet', function($sheet) use ($data)
-
         {
-
 			$sheet->fromArray($data);
 
         });
 
 	})->download($type);
-
 }
 
-
-
+// print functions
+public function print(){
+$Branches = Branches::all();
+$pdf = PDF::loadView('admin.Add_Branch', ['Branches' => $Branches]);
+return $pdf->download('Branches.pdf');
+}
 
 } //end of Branch_list controller
 
