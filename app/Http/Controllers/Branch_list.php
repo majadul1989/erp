@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Branches;
 use App\User;
 use DB;
+use Excel;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
@@ -123,6 +124,36 @@ public function delete($branch_delete_id){
 						->delete();
 	return Redirect::back()->with('message','Branch Deleted !');
 } //Branch Delete data functions
+
+// Download Excel sheet functions
+
+public function downloadExcel(Request $request, $type)
+
+{
+
+	$data = Branches::get()->toArray([
+		'branch_name' => "sadfsadf",
+		'branch_name' => "sadfsadf",
+		'branch_name' => "sadfsadf",
+		'branch_name' => "sadfsadf",
+		]);
+
+	return Excel::create('Branch List', function($excel) use ($data) {
+
+		$excel->sheet('mySheet', function($sheet) use ($data)
+
+        {
+
+			$sheet->fromArray($data);
+
+        });
+
+	})->download($type);
+
+}
+
+
+
 
 } //end of Branch_list controller
 

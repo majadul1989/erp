@@ -22,6 +22,8 @@ Route::get('/Branch_list','Branch_list@index');
 Route::get('/edit','Branch_list@edit');
 Route::POST('/update/{id}','Branch_list@update');
 Route::get('/delete/{id}','Branch_list@delete');
+// Download excel sheet from brach
+Route::get('downloadExcel/{type}', 'Branch_list@downloadExcel');
 
 
 

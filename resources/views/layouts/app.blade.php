@@ -22,8 +22,6 @@
     <link href="{{ asset('/css/fontAwasme/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-
-
 </head>
 <body class="success">
     <div id="app">

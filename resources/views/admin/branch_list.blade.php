@@ -11,7 +11,7 @@
     @endif
     @include('admin.branch_edit')
 <form class="form-group form-margin-top">
-  <div class="col-sm-8 padding">
+  <div class="col-sm-4 padding">
     <input class="form-control" id="disabledInput" name="search" type="text" placeholder="Search...">
   </div>
 
@@ -19,16 +19,22 @@
     <button type="submit" class="btn btn-default col-sm-12"><span class="glyphicon glyphicon-search"></span> Search</button>
   </div>
 
-  <div class="col-md-3">
-      <div class="col-sm-6 padding"> 
-      <button type="submit" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download </button>
+  <div class="col-md-7">
+      <div class="col-sm-3 padding"> 
+      <a href="{{url('/downloadExcel/xlsx')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xlsx </a>
       </div>
-      <div class="col-sm-6"> 
-      <button type="submit" class="btn btn-primary col-sm-11"> <span class="glyphicon glyphicon glyphicon-print"></span> Print</button>
+      <div class="col-sm-3"> 
+      <a href="{{url('/downloadExcel/xls')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xls </a>
+      </div>
+      <div class="col-sm-3 padding"> 
+      <a href="{{url('/downloadExcel/csv')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
+      </div>
+      <div class="col-sm-3"> 
+      <a tabindex="0" aria-controls="example" class="btn btn-primary col-sm-11"> <span class="glyphicon glyphicon glyphicon-print"></span> Print</a>
       </div> 
   </div> <!-- col-md-3 -->
 </form>
-<div class="clear" style="clear: both;"></div>
+<div class="clear" id="example" style="clear: both;"></div>
 <table class="table form-margin-top">
    <tr class="bnt btn-success ">
        <th>Sl. No.</th>
@@ -90,6 +96,19 @@ function edit(edit_id){
     }
   });
 }
+
+// Print functions here
+
+$(document).ready(function() {
+    $('#example').DataTable( {
+        dom: 'Bfrtip',
+        buttons: [
+            'print'
+        ]
+    } );
+} );
+
+
 
 </script>
 
