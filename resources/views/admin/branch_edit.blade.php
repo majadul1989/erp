@@ -140,6 +140,5 @@
                       </div>
                     </div>
                   </div>
-                </div>
 
                <!-- BOOTSTRAP MODEL -->
