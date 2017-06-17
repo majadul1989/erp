@@ -16,7 +16,7 @@ public function index(){
 	$branch_list2 = new Branches();
 	$branch_list = $branch_list2->branchRelation();
 	
-	return view('admin.branch_list')->with('branch_list',$branch_list);
+	return view('admin.branch_list', ['branch_list' => $branch_list]);
 }
 
 public function edit(Request $Request){ // Request to show data for edit by ajax functions

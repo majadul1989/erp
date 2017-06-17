@@ -4,6 +4,11 @@
     <div class="row">
     @include('layouts.admin_sidebar')
         <div class="col-md-10 main-class">
+        @if (session('message'))
+            <div class="alert alert-success">
+                {{ session('message') }}
+            </div>
+        @endif
         <div class="col-md-12 padding">
             <form class="form-horizontal" action="{{url('/insert')}}" id="contact_form" role="form" method="POST">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
