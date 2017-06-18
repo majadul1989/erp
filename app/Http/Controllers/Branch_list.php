@@ -144,12 +144,6 @@ public function downloadExcel(Request $request, $type)
 
 // print functions
 public function pdfview(Request $request){
-	$Branches = Branches::all();
-	// echo $Branches->branch_name;
-	// foreach ($Branches as $key => $Branche) {
-	// 	echo $Branche->branch_name;
-	// }
-
 	    $items = DB::table("Branches")->get();
 
 	    view()->share('items',$items);
@@ -173,13 +167,6 @@ public function pdfview(Request $request){
 	    return view('admin.pdfview');
 
 	} //pdfview
-
-
-
-
-	// $pdf = App::make('dompdf.wrapper');
-	// $pdf->loadHTML('');
-	// return $pdf->stream();
 
 } //end of Branch_list controller
 
