@@ -5,6 +5,7 @@ use App\Branches;
 use App\User;
 use DB;
 use Excel;
+use App;
 use PDF;
 use Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -142,13 +143,43 @@ public function downloadExcel(Request $request, $type)
 }
 
 // print functions
-public function print(Request $request){
+public function pdfview(Request $request){
+	$Branches = Branches::all();
+	// echo $Branches->branch_name;
+	// foreach ($Branches as $key => $Branche) {
+	// 	echo $Branche->branch_name;
+	// }
 
-$Branches = Branches::all();
-$pdf = PDF::loadView('admin.Add_Branch', ['Branches' => $Branches]);
-print_r($pdf);
-// return $pdf->download('Branches.pdf');
-}
+	    $items = DB::table("Branches")->get();
+
+	    view()->share('items',$items);
+
+
+	    if($request->has('download')){
+
+	        $pdf = PDF::loadView('admin.pdfview');
+
+	        $pdf->output();
+	        $dom_pdf = $pdf->getDomPDF();
+
+	        $canvas = $dom_pdf ->get_canvas();
+	        $canvas->page_text(540, 760, "Page {PAGE_NUM} of {PAGE_COUNT}", null, 8, array(0, 0, 100));
+	        $canvas->get_width();
+	        return $pdf->download('Branches.pdf');
+
+	    }
+
+
+	    return view('admin.pdfview');
+
+	} //pdfview
+
+
+
+
+	// $pdf = App::make('dompdf.wrapper');
+	// $pdf->loadHTML('');
+	// return $pdf->stream();
 
 } //end of Branch_list controller
 
