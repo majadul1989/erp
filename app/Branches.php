@@ -15,7 +15,7 @@ class Branches extends Model
 public function branchRelation(){
 	$branches = DB::table('branches')
             ->join('users', 'users.id', '=', 'branches.user_id')
-            ->get();
+            ->paginate(2);
     return $branches;
 }
 

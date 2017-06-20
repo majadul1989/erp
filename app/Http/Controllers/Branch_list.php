@@ -8,6 +8,7 @@ use Excel;
 use App;
 use PDF;
 use Validator;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;

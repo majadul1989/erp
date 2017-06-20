@@ -46,10 +46,9 @@
        <th>Create Date</th>
        <th>Action</th>
    </tr>
-   <?php $sl = 1; ?>
     @foreach ($branch_list as $key => $branch)
       <tr>
-          <td>{{$sl++}}</td>
+          <td>{{$branch->branch_id}}</td>
           <td>{{$branch->branch_name}}</td>
           <td>{{$branch->branch_email}}</td>
           <td>{{$branch->branch_phone}}</td>
@@ -61,7 +60,6 @@
           || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/delete/').'/'.$branch->branch_id}}">Delete</a></td>
       </tr>
     @endforeach
-
 
 </table>
 <img style="display: none;" class="loadimg" src="{{ asset('/img/load.gif') }}">
@@ -96,11 +94,8 @@ function edit(edit_id){
     }
   });
 }
-
-// Print functions here
-
-
 </script>
+{!! $branch_list->links() !!}
 
 
 </div>
