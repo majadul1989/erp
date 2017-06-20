@@ -48,7 +48,7 @@
    </tr>
     @foreach ($branch_list as $key => $branch)
       <tr>
-          <td>{{$branch->branch_id}}</td>
+          <td>{{$loop->index+1}}</td>
           <td>{{$branch->branch_name}}</td>
           <td>{{$branch->branch_email}}</td>
           <td>{{$branch->branch_phone}}</td>
