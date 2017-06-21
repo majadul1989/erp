@@ -133,3 +133,33 @@ url mouser color
     top: 27%;
     z-index: 999;
 }
+
+/*Auto search style*/
+#search_ul {
+    background: #fff none repeat scroll 0 0;
+    height: 150px;
+    overflow: auto;
+    position: absolute;
+    width: 100%;
+    z-index: 9;
+}
+
+#search_ul ul {
+    margin: 0;
+    padding: 0;
+}
+
+.table li {
+    list-style: outside none none;
+}
+
+#search_ul .table a {
+    border-bottom: 1px solid #000;
+    display: block;
+    padding: 3px 10px;
+}
+
+#search_ul .table a:hover {
+    text-decoration: none;
+    background-color: #f2f2f2;
+}

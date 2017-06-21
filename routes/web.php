@@ -25,6 +25,10 @@ Route::get('/delete/{id}','Branch_list@delete');
 // Download excel sheet from brach
 Route::get('downloadExcel/{type}', 'Branch_list@downloadExcel');
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'Branch_list@pdfview'));
+
+//search functions
+Route::get('search','Branch_list@search');
+Route::get('/view/{view}','Branch_list@view');
 // Route::get('pdfview', 'Branch_list@pdfview');
 
 

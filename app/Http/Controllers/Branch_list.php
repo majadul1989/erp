@@ -169,6 +169,29 @@ public function pdfview(Request $request){
 
 	} //pdfview
 
+//Live search functions here
+public function search(Request $request){
+		$search = $_GET['search'];
+		$branchs = Branches::where('branch_name', 'LIKE', '%'.$search.'%')
+		->orWhere("branch_id", "LIKE", '%'.$search.'%')
+		->get();
+		echo "<ul class='table'>";
+		foreach ($branchs as $key => $branch) {
+			echo "<li><a href='".url('/view/').'/'.$branch->branch_id."'>";
+		 	echo $branch->branch_name;
+		 	echo "</a></li>";
+		 } // Here return all data by json formet
+		 echo "</ul>";
+		// echo "<pre>";
+		//print_r($branch);
+		
+	}//end of search function
+
+public function view(Request $Request, $view){
+	echo $Request->view;
+}
+
+
 } //end of Branch_list controller
 
 

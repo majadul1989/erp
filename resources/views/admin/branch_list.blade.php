@@ -12,7 +12,10 @@
     @include('admin.branch_edit')
 <form class="form-group form-margin-top">
   <div class="col-sm-4 padding">
-    <input class="form-control" id="disabledInput" name="search" type="text" placeholder="Search...">
+    <input class="form-control" onkeyup="load()" ="" id="search" name="search" type="text" placeholder="Search...">
+    <div style="display: none;" id="search_ul">
+      
+    </div>
   </div>
 
   <div class="col-sm-1 padding">   
@@ -94,6 +97,33 @@ function edit(edit_id){
     }
   });
 }
+
+//live search functions
+function load(){
+ var search = $('#search').val();
+ var url = "{{url('/search')}}";
+ var search_val = 'search='+search;
+ $(".col-md-10").on("click", function(){
+     $("#search_ul").slideUp();
+ });
+  // alert(search_val);
+  $.ajax({
+    type: "GET",
+    url: url,
+    data:search_val,
+    success:function(search){
+
+        $("#search_ul").slideDown()
+        $("#search_ul").html('');
+        $("#search_ul").html(search);
+        // alert(search.branch_name);
+
+      // alert(search.branch_name);
+      console.log();
+    }
+  });
+}
+
 </script>
 {!! $branch_list->links() !!}
 
