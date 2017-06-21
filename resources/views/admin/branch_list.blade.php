@@ -29,7 +29,7 @@
       <div class="col-sm-3"> 
       <a href="{{url('/downloadExcel/csv')}}" class="btn btn-success col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
       </div>
-      <div class="col-sm-3"> 
+      <div class="col-sm-3 padding"> 
       <a href="{{ route('pdfview', ['download'=>'pdf']) }}" class="btn btn-danger col-sm-11"><span class="glyphicon glyphicon-download-alt"></span> Download.pdf </a>
       </div> 
   </div> <!-- col-md-3 -->
