@@ -23,6 +23,7 @@ class CreateBranchesTable extends Migration
             $table->string('branch_city',100);
             $table->string('branch_description',255);
             $table->Integer('user_id')->unsigned();
+            $table->Integer('employee_id')->unsigned();
             $table->timestamps('branch_create_date');
             $table->timestamps('branch_update_date');
         });

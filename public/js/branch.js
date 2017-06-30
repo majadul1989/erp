@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('.selectpicker').selectpicker();  
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -61,20 +62,17 @@ $(document).ready(function() {
                     }
                 }
             },
-            branch_city: {
-                validators: {
-                     stringLength: {
-                        min: 4,
-                    },
-                    notEmpty: {
-                        message: 'Please supply your city'
-                    }
+            state: {
+              validators: {
+                notEmpty: {
+                  message: 'Please select your state'
                 }
+              }
             },
             state: {
                 validators: {
                     notEmpty: {
-                        message: 'Please select your state'
+                        message: 'Please select your Branch'
                     }
                 }
             },

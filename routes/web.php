@@ -31,7 +31,13 @@ Route::get('search','Branch_list@search');
 Route::get('/view/{view}','Branch_list@view');
 // Route::get('pdfview', 'Branch_list@pdfview');
 
+//Employee controller
+Route::get('/Add_employee','Add_emplayee@index');
 
+// Department 
+Route::get('/Department','Department@index');
+Route::post('/DPT_insert','Department@insert');
+Route::get('/DPT_edit/{DPT_edit}','Department@DPT_edit');
 
 
 });

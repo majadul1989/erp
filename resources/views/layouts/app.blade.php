@@ -7,7 +7,7 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'ERP') }}</title>
 
     <!-- Styles -->
     <!-- Jquery -->
@@ -22,6 +22,9 @@
     <link href="{{ asset('/css/fontAwasme/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Selector Bootstrap -->
+    <link href="{{ asset('/css/bootstrap/css/bootstrap-select.min.css') }}" rel="stylesheet">
+
 </head>
 <body class="success">
     <div id="app">
@@ -38,8 +41,8 @@
                     </button>
 
                     <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{Request::fullUrl()}}">
-                        {{ config('app.name', 'Laravel') }}
+                    <a class="navbar-brand" href="{{url('/home')}}">
+                        {{ config('app.name', 'ERP') }}
                     </a>
                 </div>
 
@@ -85,6 +88,7 @@
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrapValidator.js') }}"></script>
 
 
+    <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap-select.min.js') }}"></script>
 
 
 
