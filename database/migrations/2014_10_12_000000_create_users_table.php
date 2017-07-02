@@ -18,6 +18,15 @@ class CreateUsersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->string('address');
+            $table->integer('branch_id');
+            $table->integer('rule_id');
+            $table->integer('pursech');
+            $table->integer('sales');
+            $table->integer('return');
+            $table->integer('sales_history');
+            $table->integer('employee');
+            $table->integer('all_branch');
             $table->rememberToken();
             $table->timestamps();
         });

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    $('.selectpicker').selectpicker();
     $('#contact_form').bootstrapValidator({
         // To use feedback icons, ensure that you use Bootstrap v3.1.0 or later
         feedbackIcons: {
@@ -71,14 +72,24 @@ $(document).ready(function() {
                     }
                 }
             },
-            state: {
+            branch: {
                 validators: {
                     notEmpty: {
-                        message: 'Please select your state'
+                        message: 'Please select your Branch'
                     }
                 }
             },
-            }
+            name: {
+                validators: {
+                     stringLength: {
+                        min: 2,
+                    },
+                    notEmpty: {
+                        message: 'Please supply your Employee Name'
+                    }
+                }
+            },
+            } //fields
         });
        
 });

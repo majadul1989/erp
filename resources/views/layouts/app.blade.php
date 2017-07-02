@@ -16,12 +16,16 @@
     <!-- Scripts -->
     <!-- branch validation js -->
     <script src="{{ asset('js/branch.js') }}"></script>
+    {{-- Dropdown Style script --}}
+    <script src="{{ asset('js/bootstrap-select.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <!-- font-Awesome -->
     <link href="{{ asset('/css/fontAwasme/css/font-awesome.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap-theme.min.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    {{-- Dropdown style css --}}
+    <link href="{{ asset('/css/bootstrap/css/bootstrap-select.css') }}" rel="stylesheet">
 </head>
 <body class="success">
     <div id="app">
