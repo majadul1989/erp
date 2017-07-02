@@ -31,10 +31,6 @@ Route::get('search','Branch_list@search');
 Route::get('/view/{view}','Branch_list@view');
 // Route::get('pdfview', 'Branch_list@pdfview');
 
-Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
-Route::post('register', 'Auth\RegisterController@register');
-
-
 
 
 });
