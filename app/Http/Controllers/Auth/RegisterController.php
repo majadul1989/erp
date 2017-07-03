@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Branches;
 use DB;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,7 @@ public function register(Request $request){
         'password' => 'required|string|min:6|confirmed',
         'address' => 'required|string|min:10',
         'branch_id' => 'required|numeric',
+        'phone' => 'required|numeric|unique:users',
     ]);
 
     if ($validator->fails()) {
@@ -89,6 +91,8 @@ public function register(Request $request){
     $name = filter_var($name2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $email2 = $request->input('email');
     $email = filter_var($email2, FILTER_SANITIZE_STRING); // Validation input in special charter form
+    $phone2 = $request->input('phone');
+    $phone = filter_var($phone2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $password2 = $request->input('password');
     $password = filter_var($password2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $address2 = $request->input('address');
@@ -150,6 +154,7 @@ public function register(Request $request){
         [
             'name'          => $name,
             'email'         => $email,
+            'phone'         => $phone,
             'password'      => bcrypt($password),
             'address'       => $address,
             'branch_id'     => $branch_id,
@@ -164,6 +169,9 @@ public function register(Request $request){
             'updated_at'    => $created_at,
 
         ]);
+    if ($db == TRUE) {
+        return Redirect::back()->with('message','Employee Successfuly Added !');
+    }
 
 } //register
 

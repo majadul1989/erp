@@ -26,7 +26,7 @@ $url = Request::route()->getName();
 			<li>
 				<a class="dropdown">Employee Department<i class="local fa fa-chevron-circle-down"></i></a>
 			    	<?php // active dropdwon and active page functions
-			    	if(Request::path() == 'register' || Request::path() == 'Branch_list' ){
+			    	if(Request::path() == 'register' || Request::path() == 'employee_list' ){
 			    		$display = "block";
 			    	}else{
 			    		$display = "none";
@@ -34,7 +34,7 @@ $url = Request::route()->getName();
 			    	?>
 				    <ul class="sub_menu" style="display:{{$display}}" >
 				     <li><a class="{{ Request::path() == 'register' ? 'active' : '' }}" href="{{url('/register')}}"> Add Employee </a></li>
-				    <li><a class="{{ Request::path() == 'Branch_list' ? 'active' : '' }}" href="{{url('/Branch_list')}}"> List of Employees </a></li>
+				    <li><a class="{{ Request::path() == 'employee_list' ? 'active' : '' }}" href="{{url('/employee_list')}}"> List of Employees </a></li>
 				    </ul>
 			</li>
 			<li><a  href="#">Financial Department</a></li>

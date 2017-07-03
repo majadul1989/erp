@@ -9,10 +9,10 @@
             {{ session('message') }}
         </div>
     @endif
-    @include('admin.edit.branch_edit')
+    @include('admin.edit.UserEdit') {{-- Here Include popup function file --}}
 <form class="form-group form-margin-top">
   <div class="col-sm-4 padding">
-    <input class="form-control" onkeyup="load()" ="" id="search" name="search" type="text" placeholder="Search...">
+    <input class="form-control" onkeyup="load()" ="" id="userSearch" name="userSearch" type="text" placeholder="Search...">
     <div style="display: none;" id="search_ul">
       
     </div>
@@ -24,16 +24,16 @@
 
   <div class="col-md-7">
       <div class="col-sm-3 "> 
-      <a href="{{url('/downloadExcel/xlsx')}}" class="btn btn-primary col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xlsx </a>
+      <a href="{{url('/userExcel/xlsx')}}" class="btn btn-primary col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xlsx </a>
       </div>
       <div class="col-sm-3"> 
-      <a href="{{url('/downloadExcel/xls')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xls </a>
+      <a href="{{url('/userExcel/xls')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xls </a>
       </div>
       <div class="col-sm-3"> 
-      <a href="{{url('/downloadExcel/csv')}}" class="btn btn-success col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
+      <a href="{{url('/userExcel/csv')}}" class="btn btn-success col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
       </div>
       <div class="col-sm-3 padding"> 
-      <a href="{{ route('pdfview', ['download'=>'pdf']) }}" class="btn btn-danger col-sm-11"><span class="glyphicon glyphicon-download-alt"></span> Download.pdf </a>
+      <a href="{{ route('UserPdfView', ['download'=>'pdf']) }}" class="btn btn-danger col-sm-11"><span class="glyphicon glyphicon-download-alt"></span> Download.pdf </a>
       </div> 
   </div> <!-- col-md-3 -->
 </form>
@@ -49,18 +49,18 @@
        <th>Create Date</th>
        <th>Action</th>
    </tr>
-    @foreach ($branch_list as $key => $branch)
+    @foreach ($data['show_users'] as $key => $show_user)
       <tr>
           <td>{{$loop->index+1}}</td>
-          <td>{{$branch->branch_name}}</td>
-          <td>{{$branch->branch_email}}</td>
-          <td>{{$branch->branch_phone}}</td>
-          <td>{{$branch->branch_address}}</td>
-          <td>{{$branch->name}}</td>
-          <td>{{$branch->branch_create_date}}</td>
+          <td>{{$show_user->name}}</td>
+          <td>{{$show_user->email}}</td>
+          <td>{{$show_user->phone}}</td>
+          <td>{{$show_user->address}}</td>
+          <td>{{$show_user->branch_name}}</td>
+          <td>{{$show_user->created_at}}</td>
           <td>
-          <a onclick="edit({{$branch->branch_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
-          || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/delete/').'/'.$branch->branch_id}}">Delete</a></td>
+          <a onclick="users({{$show_user->id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
+          || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/EmpDelete/').'/'.$show_user->id}}">Delete</a></td>
       </tr>
     @endforeach
 
@@ -69,10 +69,10 @@
 
 <script type="text/javascript">
 window.urls=0;
-function edit(edit_id){
+function users(edit_id){
     $(".loadimg").show();
   var edit_id = 'edit_id='+edit_id;
-  var url = "{{url('/edit')}}";
+  var url = "{{url('/UserEdit')}}";
   $.ajax({
     type: "GET",
     url: url,
@@ -82,15 +82,15 @@ function edit(edit_id){
     if(window.urls==0){
        window.urls=$("#branch_id").attr("action");
     }
-    $("#branch_id").attr("action",window.urls+"/"+data.branch_id);
-    $("#branch_id").val(data.branch_id);
-    $("#branch_name").val(data.branch_name);
-    $("#branch_email").val(data.branch_email);
-    $("#branch_phone").val(data.branch_phone);
-    $("#branch_address").val(data.branch_address);
-    $("#branch_city").val(data.branch_city);
-    $("#branch_description").val(data.branch_description);
-    $("#favoritesModalLabel").html('Information of <b><i>'+ data.branch_name+'</b></i>').show();
+    $("#branch_id").attr("action",window.urls+"/"+data.id);
+    $("#branch_id").val(data.id);
+    $("#branch_name").val(data.name);
+    $("#branch_email").val(data.email);
+    $("#branch_phone").val(data.phone);
+    $("#branch_address").val(data.address);
+    $("#valdfhue").html(data.branch_name);
+    $("#valdfhue").val(data.branch_id);
+    $("#favoritesModalLabel").html('Information of <b><i>'+ data.name+'</b></i>').show();
     console.log();
 
    
@@ -100,9 +100,9 @@ function edit(edit_id){
 
 //live search functions
 function load(){
- var search = $('#search').val();
- var url = "{{url('/search')}}";
- var search_val = 'search='+search;
+ var userSearch = $('#userSearch').val();
+ var url = "{{url('/userSearch')}}";
+ var search_val = 'userSearch='+userSearch;
  $(".col-md-10").on("click", function(){
      $("#search_ul").slideUp();
  });
@@ -125,7 +125,7 @@ function load(){
 }
 
 </script>
-{!! $branch_list->links() !!}
+{!! $data['show_users']->links() !!}
 
 
 </div>

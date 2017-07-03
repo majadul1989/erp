@@ -26,11 +26,24 @@ Route::get('/delete/{id}','Branch_list@delete');
 Route::get('downloadExcel/{type}', 'Branch_list@downloadExcel');
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'Branch_list@pdfview'));
 
-//search functions
+//Live search functions
 Route::get('search','Branch_list@search');
 Route::get('/view/{view}','Branch_list@view');
 // Route::get('pdfview', 'Branch_list@pdfview');
-
+// User Functions 
+Route::get('/employee_list','employee_list@index');
+// Excel functions
+Route::get('userExcel/{type}', 'employee_list@userExcel');
+// PDF Functions
+Route::get('UserPdfView',array('as'=>'UserPdfView','uses'=>'employee_list@UserPdfView'));
+//Live search functions
+Route::get('userSearch','employee_list@userSearch');
+// User View functions
+Route::get('/UserView/{user_info}','employee_list@UserView');
+//User Edit function
+Route::get('/UserEdit','employee_list@UserEdit');
+// Delete Functions
+Route::get('/EmpDelete/{id}','employee_list@EmpDelete');
 
 
 });

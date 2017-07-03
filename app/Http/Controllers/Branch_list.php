@@ -152,7 +152,7 @@ public function pdfview(Request $request){
 
 	    if($request->has('download')){
 
-	        $pdf = PDF::loadView('admin.pdfview');
+	        $pdf = PDF::loadView('admin.PDF.pdfview');
 
 	        $pdf->output();
 	        $dom_pdf = $pdf->getDomPDF();
@@ -165,7 +165,7 @@ public function pdfview(Request $request){
 	    }
 
 
-	    return view('admin.pdfview');
+	    return view('admin.PDF.pdfview');
 
 	} //pdfview
 

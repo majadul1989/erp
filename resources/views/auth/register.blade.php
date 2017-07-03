@@ -46,6 +46,22 @@
                         @endif
                     </div>
                 </div>
+                <!-- Text input-->
+                       
+                <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
+                  <label class="col-md-2 control-label">Phone</label>  
+                    <div class="col-md-7 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
+                  <input name="phone" placeholder="01xxxxxxxxx" class="form-control" type="text" autofocus required value="{{ old('phone') }}">
+                    </div>
+                    @if ($errors->has('phone')) <!-- show error --> 
+                        <span class="help-block red">
+                            <strong>{{ $errors->first('phone') }}</strong>
+                        </span>
+                    @endif
+                  </div>
+                </div>
                 <!-- Input Field -->
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <label for="password" class="col-md-2 control-label">Password</label>
@@ -89,22 +105,22 @@
                     </div>
                 </div>
 
-              <!-- Text input-->
-              <div class="form-group {{ $errors->has('branch_id') ? ' has-error' : '' }}">
+              <!-- Dropdown-->
+              <div class="form-group {{ $errors->has('branch_city_id') ? ' has-error' : '' }}">
                 <label class="col-md-2 control-label">Select Branch</label>  
                   <div class="col-md-7 inputGroupContainer">
                     <div class="input-group">
                       <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="branch_id" class="form-control selectpicker" data-live-search="true">
+                        <select name="branch_city_id" class="form-control selectpicker" data-live-search="true">
                         <option value=" " >Please select your Branch</option>
                         @foreach ($dates as $key => $data)
                         <option value="{{$data->branch_id}}">{{$data->branch_name}}</option>
                         @endforeach
                         </select>
                     </div>
-                         @if ($errors->has('branch_id')) <!-- show error --> 
+                         @if ($errors->has('branch_city_id')) <!-- show error --> 
                             <span class="help-block red">
-                                <strong>{{ $errors->first('branch_id') }}</strong>
+                                <strong>{{ $errors->first('branch_city_id') }}</strong>
                            </span>
                         @endif
                   </div>

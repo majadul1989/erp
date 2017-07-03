@@ -52,6 +52,20 @@ $(document).ready(function() {
                         },
                     }
                 },
+            phone: {
+                validators: {
+                    stringLength: {
+                            min: 11,
+                        },
+                        notEmpty: {
+                            message: 'Please supply your phone number'
+                        },
+                        regexp: {
+                               regexp: /^\+?([(880)/\.\-\s]*[0-9]){11}\s*((ext|x)\s*[0-9]+)*$/,
+                               message: 'The input is not a valid BD phone number'
+                        },
+                    }
+                },
             branch_address: {
                 validators: {
                      stringLength: {
@@ -79,6 +93,14 @@ $(document).ready(function() {
                     }
                 }
             },
+             branch_city_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your Branch'
+                    }
+                }
+            },
+            
             name: {
                 validators: {
                      stringLength: {
