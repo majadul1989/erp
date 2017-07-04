@@ -90,10 +90,36 @@ function users(edit_id){
     $("#branch_address").val(data.address);
     $("#valdfhue").html(data.branch_name);
     $("#valdfhue").val(data.branch_id);
+    var pursech = data.pursech; // Get date from database
+    if (pursech == 1) {
+    $('#pursech').attr( "checked" ,"checked" );
+    } //pursech
+    var sales = data.sales; // Get date from database
+    if (sales == 1) {
+    $('#sales').attr( "checked" ,"checked" );
+    } //sales
+    var return2 = data.return; // Get date from database
+    if (return2 == 1) {
+    $('#return2').attr( "checked" ,"checked" );
+    } //return2
+    var sales_history = data.sales_history; // Get date from database
+    if (sales_history == 1) {
+    $('#sales_history').attr( "checked" ,"checked" );
+    } //sales_history
+    var accounts = data.accounts; // Get date from database
+    if (accounts == 1) {
+    $('#accounts').attr( "checked" ,"checked" );
+    } //accounts
+    var employee = data.employee; // Get date from database
+    if (employee == 1) {
+    $('#employee').attr( "checked" ,"checked" );
+    } //employee
+    var all_branch = data.all_branch; // Get date from database
+    if (all_branch == 1) {
+    $('#all_branch').attr( "checked" ,"checked" );
+    } //all_branch
     $("#favoritesModalLabel").html('Information of <b><i>'+ data.name+'</b></i>').show();
     console.log();
-
-   
     }
   });
 }

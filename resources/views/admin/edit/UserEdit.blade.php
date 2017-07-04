@@ -5,10 +5,9 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <button type="button" class="close" 
-                          data-dismiss="modal" 
+                        <a href="{{url('/employee_list/')}}" type="button" class="close"
                           aria-label="Close">
-                          <span aria-hidden="true">&times;</span></button>
+                          <span aria-hidden="true">&times;</span></a>
                         <h2 class="modal-title" 
                         id="favoritesModalLabel" class="branch_info"></h2>
                       </div>
@@ -109,7 +108,7 @@
                           </div>
                         </div>
 
-
+                    {{-- checkbox --}}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Employee Permission</label>
                         <div class="col-md-7 inputGroupContainer">
@@ -118,10 +117,10 @@
                        <input class="field" id="pursech" name="pursech" type="checkbox" value="1" autofocus {{ old('checked') }}>
                  
                                <span class="permission">Sales</span>
-                        <input class="field" id="sales" name="sales" type="checkbox" value="1" autofocus {{ old('checked') }}>
+                        <input class="field" id="sales" name="sales" type="checkbox" value="1" autofocus
                  
                         <span class="permission">Return</span>
-                        <input class="field" id="return" name="return" type="checkbox" value="1" autofocus {{ old('checked') }}>
+                        <input class="field" id="return2" name="return" type="checkbox" value="1" autofocus {{ old('checked') }}>
                  
                         <span class="permission">Sales History</span>
                         <input class="field" id="sales_history" name="sales_history" type="checkbox" value="1" autofocus {{ old('checked') }}>

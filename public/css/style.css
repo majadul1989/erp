@@ -131,7 +131,7 @@ url mouser color
     left: 41%;
     position: fixed;
     top: 27%;
-    z-index: 999;
+    z-index: 9999;
 }
 
 /*Auto search style*/

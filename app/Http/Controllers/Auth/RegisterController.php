@@ -144,7 +144,7 @@ public function register(Request $request){
     $all_branch2 = $request->input('all_branch');
     $all_branch = filter_var($all_branch2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     if ($all_branch == "") { // here is conditions for 0 or 1;
-        $all_branch = 0;
+        $all_branch =0;
     }else{
        $all_branch = 1; 
     }

@@ -38,6 +38,8 @@ $url = Request::route()->getName();
 				    </ul>
 			</li>
 			<li><a  href="#">Financial Department</a></li>
+			<li><a  href="#">{{ Auth::user()->name}}</a></li>
+
 		</ul>
 	</div>
 
