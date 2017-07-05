@@ -5,9 +5,10 @@
                   <div class="modal-dialog" role="document">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <a href="{{url('/employee_list/')}}" type="button" class="close"
-                          aria-label="Close">
-                          <span aria-hidden="true">&times;</span></a>
+                        <button type="button"
+                          aria-label="Close" class="close" 
+                          data-dismiss="modal">
+                          <span aria-hidden="true">&times;</span></button>
                         <h2 class="modal-title" 
                         id="favoritesModalLabel" class="branch_info"></h2>
                       </div>

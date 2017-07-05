@@ -91,35 +91,58 @@ function users(edit_id){
     $("#valdfhue").html(data.branch_name);
     $("#valdfhue").val(data.branch_id);
     var pursech = data.pursech; // Get date from database
+    // condition ? expr1 : expr2 
     if (pursech == 1) {
+    // $('#pursech').attr( " " ," " );
     $('#pursech').attr( "checked" ,"checked" );
+    }else{
+    $('#pursech').attr('checked', false);
     } //pursech
+
     var sales = data.sales; // Get date from database
     if (sales == 1) {
     $('#sales').attr( "checked" ,"checked" );
+    }else{
+    $('#sales').attr('checked', false);
     } //sales
+
     var return2 = data.return; // Get date from database
     if (return2 == 1) {
     $('#return2').attr( "checked" ,"checked" );
-    } //return2
+    }else{
+    $('#return2').attr('checked', false);
+    }  //return2
+
     var sales_history = data.sales_history; // Get date from database
     if (sales_history == 1) {
     $('#sales_history').attr( "checked" ,"checked" );
+    }else{
+    $('#sales_history').attr('checked', false);
     } //sales_history
+
     var accounts = data.accounts; // Get date from database
     if (accounts == 1) {
     $('#accounts').attr( "checked" ,"checked" );
+    }else{
+    $('#accounts').attr('checked', false);
     } //accounts
+
     var employee = data.employee; // Get date from database
     if (employee == 1) {
     $('#employee').attr( "checked" ,"checked" );
+    }else{
+    $('#employee').attr('checked', false);
     } //employee
+
     var all_branch = data.all_branch; // Get date from database
     if (all_branch == 1) {
     $('#all_branch').attr( "checked" ,"checked" );
-    } //all_branch
+    }else{
+    $('#all_branch').attr('checked', false);
+    }  //all_branch
+
     $("#favoritesModalLabel").html('Information of <b><i>'+ data.name+'</b></i>').show();
-    console.log();
+    console.log(data);
     }
   });
 }

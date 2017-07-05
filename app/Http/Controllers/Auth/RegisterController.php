@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -71,22 +71,22 @@ class RegisterController extends Controller
    
 
 public function register(Request $request){
-    
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|string|max:255|unique:users',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:6|confirmed',
-        'address' => 'required|string|min:10',
-        'branch_id' => 'required|numeric',
-        'phone' => 'required|numeric|unique:users',
-    ]);
+    print_r($_POST);
+    // $validator = Validator::make($request->all(), [
+    //     'name' => 'required|string|max:255|unique:users',
+    //     'email' => 'required|string|email|max:255|unique:users',
+    //     'password' => 'required|string|min:6|confirmed',
+    //     'address' => 'required|string|min:10',
+    //     'branch_id' => 'required|numeric',
+    //     'phone' => 'required|numeric|unique:users',
+    // ]);
 
-    if ($validator->fails()) {
-        return redirect('register')
-                    ->withErrors($validator)
-                    ->withInput();
+    // if ($validator->fails()) {
+    //     return redirect('register')
+    //                 ->withErrors($validator)
+    //                 ->withInput();
 
-    }
+    // }
     $name2 = $request->input('name');
     $name = filter_var($name2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $email2 = $request->input('email');
@@ -97,7 +97,7 @@ public function register(Request $request){
     $password = filter_var($password2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $address2 = $request->input('address');
     $address = filter_var($address2, FILTER_SANITIZE_STRING); // Validation input in special charter form
-    $branch_id2 = $request->input('branch_id');
+    $branch_id2 = $request->input('branch_city_id');
     $branch_id = filter_var($branch_id2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $pursech2 = $request->input('pursech');
     $pursech = filter_var($pursech2, FILTER_SANITIZE_STRING); // Validation input in special charter form
@@ -157,7 +157,7 @@ public function register(Request $request){
             'phone'         => $phone,
             'password'      => bcrypt($password),
             'address'       => $address,
-            'branch_id'     => $branch_id,
+            'branch_city_id'=> $branch_id,
             'pursech'       => $pursech,
             'sales'         => $sales,
             'return'        => $return,
@@ -171,6 +171,8 @@ public function register(Request $request){
         ]);
     if ($db == TRUE) {
         return Redirect::back()->with('message','Employee Successfuly Added !');
+    }else{
+        return Redirect::back()->with('message','Employee Unsuccessfuly Added !');
     }
 
 } //register
