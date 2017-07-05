@@ -50,7 +50,7 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
@@ -71,22 +71,21 @@ class RegisterController extends Controller
    
 
 public function register(Request $request){
-    print_r($_POST);
-    // $validator = Validator::make($request->all(), [
-    //     'name' => 'required|string|max:255|unique:users',
-    //     'email' => 'required|string|email|max:255|unique:users',
-    //     'password' => 'required|string|min:6|confirmed',
-    //     'address' => 'required|string|min:10',
-    //     'branch_id' => 'required|numeric',
-    //     'phone' => 'required|numeric|unique:users',
-    // ]);
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255|unique:users',
+        'email' => 'required|string|email|max:255|unique:users',
+        'password' => 'required|string|min:6|confirmed',
+        'address' => 'required|string|min:10',
+        'branch_id' => 'required|numeric',
+        'phone' => 'required|numeric|unique:users',
+    ]);
 
-    // if ($validator->fails()) {
-    //     return redirect('register')
-    //                 ->withErrors($validator)
-    //                 ->withInput();
+    if ($validator->fails()) {
+        return redirect('register')
+                    ->withErrors($validator)
+                    ->withInput();
 
-    // }
+    }
     $name2 = $request->input('name');
     $name = filter_var($name2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     $email2 = $request->input('email');

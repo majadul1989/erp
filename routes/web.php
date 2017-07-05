@@ -44,6 +44,8 @@ Route::get('/UserView/{user_info}','employee_list@UserView');
 Route::get('/UserEdit','employee_list@UserEdit');
 // Delete Functions
 Route::get('/EmpDelete/{id}','employee_list@EmpDelete');
+// Update functions
+Route::POST('/userUpdate/{id}','employee_list@userUpdate');
 
 
 });

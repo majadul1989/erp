@@ -14,22 +14,22 @@
                       </div>
                       <div class="modal-body">
                     <!--  -->
-                       <form id="branch_id" class="form-horizontal" action="{{url('/update/')}}" id="contact_form" role="form" method="POST">
+                       <form id="branch_id" class="form-horizontal" action="{{url('/userUpdate/')}}" id="contact_form" role="form" method="POST">
                        <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                        <fieldset>
                        <!-- Success message -->
 
                        <!-- Text input-->
-                       <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
+                       <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                                <label class="col-md-3 control-label">Branch Name</label>
                            <div class="col-md-7 inputGroupContainer">
                                <div class="input-group">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                                       <input id="branch_name" type="text" class="form-control" name="branch_name" value="{{ old('branch_name') }}"  autofocus required>
+                                       <input id="branch_name" type="text" class="form-control" name="name" value="{{ old('name') }}"  autofocus required>
                                </div>
-                                   @if ($errors->has('branch_name')) <!-- show error --> 
+                                   @if ($errors->has('name')) <!-- show error --> 
                                        <span class="help-block red">
-                                           <strong>{{ $errors->first('branch_name') }}</strong>
+                                           <strong>{{ $errors->first('name') }}</strong>
                                        </span>
                                    @endif
                            </div>
@@ -37,16 +37,16 @@
 
 
                        <!-- Text input-->
-                       <div class="form-group {{ $errors->has('branch_email') ? ' has-error' : '' }}">
+                       <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                              <label class="col-md-3 control-label">Branch E-Mail</label>  
                            <div class="col-md-7 inputGroupContainer">
                                <div class="input-group">
                                    <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                                   <input id="branch_email" name="branch_email" placeholder="E-Mail Address" class="form-control" value="{{ old('branch_email') }}" type="text" autofocus required>
+                                   <input id="branch_email" name="email" placeholder="E-Mail Address" class="form-control" value="{{ old('email') }}" type="text" autofocus required>
                                </div>
-                               @if ($errors->has('branch_email')) <!-- show error --> 
+                               @if ($errors->has('email')) <!-- show error --> 
                                    <span class="help-block red">
-                                       <strong>{{ $errors->first('branch_email') }}</strong>
+                                       <strong>{{ $errors->first('email') }}</strong>
                                    </span>
                                @endif
                            </div>
@@ -55,16 +55,16 @@
 
                        <!-- Text input-->
                               
-                       <div class="form-group {{ $errors->has('branch_phone') ? ' has-error' : '' }}">
+                       <div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
                          <label class="col-md-3 control-label">Branch Phone #</label>  
                            <div class="col-md-7 inputGroupContainer">
                            <div class="input-group">
                                <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-                         <input id="branch_phone" name="branch_phone" placeholder="01xxxxxxxxx" class="form-control" type="text" autofocus required value="{{ old('branch_phone') }}">
+                         <input id="branch_phone" name="phone" placeholder="01xxxxxxxxx" class="form-control" type="text" autofocus required value="{{ old('phone') }}">
                            </div>
-                           @if ($errors->has('branch_phone')) <!-- show error --> 
+                           @if ($errors->has('phone')) <!-- show error --> 
                                <span class="help-block red">
-                                   <strong>{{ $errors->first('branch_phone') }}</strong>
+                                   <strong>{{ $errors->first('phone') }}</strong>
                                </span>
                            @endif
                          </div>
@@ -73,16 +73,16 @@
                       
                        <!-- Text area -->
                          
-                       <div class="form-group {{ $errors->has('branch_address') ? ' has-error' : '' }}">
+                       <div class="form-group {{ $errors->has('address') ? ' has-error' : '' }}">
                          <label class="col-md-3 control-label">Address</label>
                            <div class="col-md-7 inputGroupContainer">
                            <div class="input-group">
                                <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                               <textarea class="form-control" id="branch_address" name="branch_address"  placeholder="Project Description" autofocus required> {{ old('branch_address') }}</textarea>
+                               <textarea class="form-control" id="branch_address" name="address"  placeholder="Address" autofocus required> {{ old('address') }}</textarea>
                          </div>
-                         @if ($errors->has('branch_address')) <!-- show error --> 
+                         @if ($errors->has('address')) <!-- show error --> 
                              <span class="help-block red">
-                                 <strong>{{ $errors->first('branch_address') }}</strong>
+                                 <strong>{{ $errors->first('address') }}</strong>
                              </span>
                          @endif
                          </div>
@@ -108,7 +108,22 @@
                                 @endif
                           </div>
                         </div>
-
+                        <!-- Text area -->
+                          
+                        <div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
+                          <label class="col-md-3 control-label">Address</label>
+                            <div class="col-md-7 inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password"  placeholder="password">
+                          </div>
+                          @if ($errors->has('password')) <!-- show error --> 
+                              <span class="help-block red">
+                                  <strong>{{ $errors->first('password') }}</strong>
+                              </span>
+                          @endif
+                          </div>
+                        </div> 
                     {{-- checkbox --}}
                 <div class="form-group">
                     <label class="col-md-3 control-label">Employee Permission</label>
@@ -144,7 +159,7 @@
                          <div class="col-md-6">
                            <button type="submit" class="btn btn-primary col-md-4" >Send <span class="glyphicon glyphicon-send"></span></button>
                            <label class="col-md-1 control-label"></label>
-                           <button type="reset" class="btn btn-danger col-md-4" >Restart  <span class="glyphicon glyphicon-remove"></span></button>
+                           <button type="reset" class="btn btn-danger col-md-4" >Restart  <span class="glyphicon glyphicon-refresh"></span></button>
                          </div>
                          </div>
                        </fieldset>

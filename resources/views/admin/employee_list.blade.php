@@ -41,11 +41,11 @@
 <table class="table form-margin-top">
    <tr class="bnt btn-success ">
        <th>Sl. No.</th>
-       <th>Branch Name</th>
-       <th>Branch Phone</th>
-       <th>Branch E-mail</th>
-       <th>Branch Adress</th>
-       <th>Created by</th>
+       <th>User Name</th>
+       <th>User E-mail</th>
+       <th>User Phone</th>
+       <th>User Adress</th>
+       <th>User Branch</th>
        <th>Create Date</th>
        <th>Action</th>
    </tr>
@@ -90,57 +90,34 @@ function users(edit_id){
     $("#branch_address").val(data.address);
     $("#valdfhue").html(data.branch_name);
     $("#valdfhue").val(data.branch_id);
-    var pursech = data.pursech; // Get date from database
-    // condition ? expr1 : expr2 
-    if (pursech == 1) {
-    // $('#pursech').attr( " " ," " );
-    $('#pursech').attr( "checked" ,"checked" );
-    }else{
-    $('#pursech').attr('checked', false);
-    } //pursech
-
-    var sales = data.sales; // Get date from database
-    if (sales == 1) {
-    $('#sales').attr( "checked" ,"checked" );
-    }else{
-    $('#sales').attr('checked', false);
-    } //sales
-
-    var return2 = data.return; // Get date from database
-    if (return2 == 1) {
-    $('#return2').attr( "checked" ,"checked" );
-    }else{
-    $('#return2').attr('checked', false);
-    }  //return2
-
-    var sales_history = data.sales_history; // Get date from database
-    if (sales_history == 1) {
-    $('#sales_history').attr( "checked" ,"checked" );
-    }else{
-    $('#sales_history').attr('checked', false);
-    } //sales_history
-
-    var accounts = data.accounts; // Get date from database
-    if (accounts == 1) {
-    $('#accounts').attr( "checked" ,"checked" );
-    }else{
-    $('#accounts').attr('checked', false);
-    } //accounts
-
-    var employee = data.employee; // Get date from database
-    if (employee == 1) {
-    $('#employee').attr( "checked" ,"checked" );
-    }else{
-    $('#employee').attr('checked', false);
-    } //employee
-
-    var all_branch = data.all_branch; // Get date from database
-    if (all_branch == 1) {
-    $('#all_branch').attr( "checked" ,"checked" );
-    }else{
-    $('#all_branch').attr('checked', false);
-    }  //all_branch
-
+    // Get date from database
+    var pursech = data.pursech; 
+    //Check condition checked or not..
+    pursech == 1 ? $('#pursech').attr( "checked" ,"checked" ):$('#pursech').attr('checked', false);
+    // Get date from database
+    var sales = data.sales;
+    //Check condition checked or not..
+    sales == 1 ? $('#sales').attr( "checked" ,"checked" ):$('#sales').attr('checked', false);
+    // Get date from database
+    var return2 = data.return;
+    //Check condition checked or not..
+    return2 == 1 ? $('#return2').attr( "checked" ,"checked" ):$('#return2').attr('checked', false);
+    // Get date from database
+    var sales_history = data.sales_history;
+    //Check condition checked or not..
+    sales_history == 1 ? $('#sales_history').attr( "checked" ,"checked" ):$('#sales_history').attr('checked', false);
+    // Get date from database
+    var accounts = data.accounts;
+    //Check condition checked or not..
+    accounts == 1 ? $('#accounts').attr( "checked" ,"checked" ):$('#accounts').attr('checked', false);
+    // Get date from database
+    var employee = data.employee;
+    //Check condition checked or not..
+    employee == 1 ? $('#employee').attr( "checked" ,"checked" ):$('#employee').attr('checked', false);
+    // Get date from database
+    var all_branch = data.all_branch;
+    //Check condition checked or not..
+    all_branch == 1 ? $('#all_branch').attr( "checked" ,"checked" ):$('#all_branch').attr('checked', false);
     $("#favoritesModalLabel").html('Information of <b><i>'+ data.name+'</b></i>').show();
     console.log(data);
     }
