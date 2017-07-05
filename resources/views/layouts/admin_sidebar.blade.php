@@ -21,7 +21,25 @@ $url = Request::route()->getName();
 				    </ul>
 			</li>
 			<li><a  href="#">Company</a></li>
-			<li><a  href="#">Sale Department</a></li>
+			<li>
+				<a class="dropdown">Sale Department <i class="local fa fa-chevron-circle-down"></i></a>
+			    	<?php // active dropdwon and active page functions
+			    	if(Request::path() == 'Create_customer' || Request::path() == 'Customer_list' ){
+			    		$display = "block";
+			    	}else{
+			    		$display = "none";
+			    	} 
+			    	?>
+				    <ul class="sub_menu" style="display:{{$display}}" >
+				     <li><a class="{{ Request::path() == 'Sale' ? 'active' : '' }}" href="{{url('/Sale')}}"> Sale </a></li>
+				     <li><a class="{{ Request::path() == 'Sale_history' ? 'active' : '' }}" href="{{url('/Sale_history')}}"> Sale Histories </a></li>
+				     <li><a class="{{ Request::path() == 'Branch_sale_history' ? 'active' : '' }}" href="{{url('/Branch_sale_history')}}">Branch Sale Histories </a></li>
+				     <li><a class="{{ Request::path() == 'Create_customer' ? 'active' : '' }}" href="{{url('/Create_customer')}}"> Add New Customer </a></li>
+				     <li><a class="{{ Request::path() == 'Customer_sale_history' ? 'active' : '' }}" href="{{url('/Customer_sale_history')}}">Customers History </a></li>
+				    <li><a class="{{ Request::path() == 'Customer_list' ? 'active' : '' }}" href="{{url('/Customer_list')}}"> List of Customer </a></li>
+				    </ul>
+			</li>
+
 			<li><a  href="#">Purchase Department</a></li>
 			<li>
 				<a class="dropdown">Employee Department<i class="local fa fa-chevron-circle-down"></i></a>

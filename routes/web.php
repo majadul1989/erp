@@ -46,7 +46,8 @@ Route::get('/UserEdit','employee_list@UserEdit');
 Route::get('/EmpDelete/{id}','employee_list@EmpDelete');
 // Update functions
 Route::POST('/userUpdate/{id}','employee_list@userUpdate');
-
+//Create_customer fucntions //
+Route::get('/Create_customer','Create_customer@index');
 
 });
 Auth::routes();

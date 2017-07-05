@@ -131,7 +131,7 @@
                                <div class="col-md-7 inputGroupContainer">
                                <div class="input-group">
                               <span class="permission">Pursech</span>
-                      <input class="field" name="pursech" type="checkbox" value="1" autofocus {{ old('checked') }}>
+                      <input class="field" name="pursech" type="checkbox" value="1" autofocus {{ old('pursech') }}>
               
                               <span class="permission">Sales</span>
                        <input class="field" name="sales" type="checkbox" value="1" autofocus {{ old('checked') }}>
