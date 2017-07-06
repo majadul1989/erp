@@ -14,6 +14,8 @@ Route::get('/', function () {
     return view('auth.login');
 });
 Route::group(['middleware'=>'auth'],function(){
+
+//***************** User Functions*******************// 
 // Branch ADD and Create and Read controller CR 
 Route::get('/Add_Branch','Add_Branch@index');
 Route::post('/insert','Add_Branch@insert');
@@ -25,12 +27,12 @@ Route::get('/delete/{id}','Branch_list@delete');
 // Download excel sheet from brach
 Route::get('downloadExcel/{type}', 'Branch_list@downloadExcel');
 Route::get('pdfview',array('as'=>'pdfview','uses'=>'Branch_list@pdfview'));
-
 //Live search functions
 Route::get('search','Branch_list@search');
 Route::get('/view/{view}','Branch_list@view');
-// Route::get('pdfview', 'Branch_list@pdfview');
-// User Functions 
+
+
+//***************** User Functions*******************// 
 Route::get('/employee_list','employee_list@index');
 // Excel functions
 Route::get('userExcel/{type}', 'employee_list@userExcel');
@@ -49,6 +51,14 @@ Route::POST('/userUpdate/{id}','employee_list@userUpdate');
 //Create_customer fucntions //
 Route::get('/Create_customer','Create_customer@index');
 
+
+//***************** Customer Functions*******************//
+Route::post('/CTR_insert','Create_customer@CTR_insert');
+Route::get('/Customer_list','Customer_list@index');
+// Excel functions
+Route::get('customerExcel/{type}', 'Customer_list@customerExcel');
+// PDF Functions
+Route::get('/customerPdfView',array('as'=>'customerPdfView','uses'=>'Customer_list@customerPdfView'));
 });
 Auth::routes();
 

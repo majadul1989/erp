@@ -10,7 +10,7 @@
             </div>
         @endif
         <div class="col-md-12 padding">
-            <form class="form-horizontal" action="{{url('/insert')}}" id="contact_form" role="form" method="POST">
+            <form class="form-horizontal" action="{{url('/CTR_insert')}}" id="contact_form" role="form" method="POST">
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <fieldset>
             <!-- Success message -->

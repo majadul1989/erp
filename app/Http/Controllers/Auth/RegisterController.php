@@ -74,10 +74,10 @@ public function register(Request $request){
     $validator = Validator::make($request->all(), [
         'name' => 'required|string|max:255|unique:users',
         'email' => 'required|string|email|max:255|unique:users',
+        'phone' => 'required|numeric|unique:users',
         'password' => 'required|string|min:6|confirmed',
         'address' => 'required|string|min:10',
-        'branch_id' => 'required|numeric',
-        'phone' => 'required|numeric|unique:users',
+        'branch_city_id' => 'required|numeric',
     ]);
 
     if ($validator->fails()) {
@@ -143,7 +143,7 @@ public function register(Request $request){
     $all_branch2 = $request->input('all_branch');
     $all_branch = filter_var($all_branch2, FILTER_SANITIZE_STRING); // Validation input in special charter form
     if ($all_branch == "") { // here is conditions for 0 or 1;
-        $all_branch =0;
+        $all_branch = 0;
     }else{
        $all_branch = 1; 
     }
