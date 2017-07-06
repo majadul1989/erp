@@ -145,10 +145,10 @@
                        <span class="permission">Accounts</span>
                        <input class="field" name="accounts" type="checkbox" value="1" autofocus {{ old('checked') }}>
 
-                      <span class="permission">Add New Employee</span>
+                      <span class="permission">Admin</span>
                       <input class="field" name="employee" type="checkbox" value="1" autofocus {{ old('checked') }}>
                 
-                       <span class="permission">All Branches</span>
+                       <span class="permission">Super Admin</span>
                        <input class="field" name="all_branch" type="checkbox" value="1" autofocus {{ old('checked') }}>
                               </div>
                               </div>

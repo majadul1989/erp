@@ -14,107 +14,64 @@
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <fieldset>
             <!-- Success message -->
-           <h2>New Branch Descriptions</h2><hr>
+           <h2>Customer Informations</h2><hr>
 
             <!-- Text input-->
-            <div class="form-group{{ $errors->has('branch_name') ? ' has-error' : '' }}">
-                    <label class="col-md-3 control-label">Branch Name</label>
+            <div class="form-group{{ $errors->has('customer_name') ? ' has-error' : '' }}">
+                    <label class="col-md-3 control-label">Customer Name</label>
                 <div class="col-md-7 inputGroupContainer">
                     <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                            <input id="branch_name" type="text" class="form-control" name="branch_name" value="{{ old('branch_name') }}"  autofocus required>
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                            <input id="customer_name" type="text" placeholder="Name" class="form-control" name="customer_name" value="{{ old('customer_name') }}"  autofocus required>
                     </div>
-                        @if ($errors->has('branch_name')) <!-- show error --> 
+                        @if ($errors->has('customer_name')) <!-- show error --> 
                             <span class="help-block red">
-                                <strong>{{ $errors->first('branch_name') }}</strong>
+                                <strong>{{ $errors->first('customer_name') }}</strong>
                             </span>
                         @endif
                 </div>
             </div>
-
-
             <!-- Text input-->
-            <div class="form-group {{ $errors->has('branch_email') ? ' has-error' : '' }}">
-                  <label class="col-md-3 control-label">Branch E-Mail</label>  
+            <div class="form-group{{ $errors->has('customer_mobile') ? ' has-error' : '' }}">
+                    <label class="col-md-3 control-label">Customer Mobile</label>
+                <div class="col-md-7 inputGroupContainer">
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                            <input id="customer_mobile" type="text" placeholder="Mobile" class="form-control" name="customer_mobile" value="{{ old('customer_mobile') }}"  autofocus required>
+                    </div>
+                        @if ($errors->has('customer_mobile')) <!-- show error --> 
+                            <span class="help-block red">
+                                <strong>{{ $errors->first('customer_mobile') }}</strong>
+                            </span>
+                        @endif
+                </div>
+            </div>
+            <!-- Text input-->
+            <div class="form-group{{ $errors->has('customer_mail') ? ' has-error' : '' }}">
+                    <label class="col-md-3 control-label">Customer Email</label>
                 <div class="col-md-7 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="branch_email" placeholder="E-Mail Address" class="form-control" value="{{ old('branch_email') }}" type="text" autofocus required>
+                            <input id="customer_mail" placeholder="E-mail" type="text" class="form-control" name="customer_mail" value="{{ old('customer_mail') }}"  autofocus required>
                     </div>
-                    @if ($errors->has('branch_email')) <!-- show error --> 
-                        <span class="help-block red">
-                            <strong>{{ $errors->first('branch_email') }}</strong>
-                        </span>
-                    @endif
+                        @if ($errors->has('customer_mail')) <!-- show error --> 
+                            <span class="help-block red">
+                                <strong>{{ $errors->first('customer_mail') }}</strong>
+                            </span>
+                        @endif
                 </div>
             </div>
-
-
-            <!-- Text input-->
-                   
-            <div class="form-group {{ $errors->has('branch_phone') ? ' has-error' : '' }}">
-              <label class="col-md-3 control-label">Branch Phone #</label>  
-                <div class="col-md-7 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-earphone"></i></span>
-              <input name="branch_phone" placeholder="01xxxxxxxxx" class="form-control" type="text" autofocus required value="{{ old('branch_phone') }}">
-                </div>
-                @if ($errors->has('branch_phone')) <!-- show error --> 
-                    <span class="help-block red">
-                        <strong>{{ $errors->first('branch_phone') }}</strong>
-                    </span>
-                @endif
-              </div>
-            </div>
-
-          
             <!-- Text area -->
-              
-            <div class="form-group {{ $errors->has('branch_address') ? ' has-error' : '' }}">
-              <label class="col-md-3 control-label">Address</label>
+            <div class="form-group {{ $errors->has('customer_address') ? ' has-error' : '' }}">
+              <label class="col-md-3 control-label">Customer Address</label>
                 <div class="col-md-7 inputGroupContainer">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                    <textarea class="form-control" name="branch_address"  placeholder="Project Description" autofocus required> {{ old('branch_address') }}</textarea>
+                        <textarea class="form-control" name="customer_address" placeholder="Address">{{ old('customer_address') }}</textarea>
               </div>
-              @if ($errors->has('branch_address')) <!-- show error --> 
+              @if ($errors->has('customer_address')) <!-- show error --> 
                   <span class="help-block red">
-                      <strong>{{ $errors->first('branch_address') }}</strong>
-                  </span>
-              @endif
-              </div>
-            </div> 
-
-            <!-- Text input-->
-             
-            <div class="form-group {{ $errors->has('branch_city') ? ' has-error' : '' }}">
-              <label class="col-md-3 control-label">Branch City</label>  
-                <div class="col-md-7 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-              <input name="branch_city" value="{{ old('branch_city') }}" placeholder="branch_city" class="form-control"  type="text" autofocus required>
-                </div>
-                @if ($errors->has('branch_city')) <!-- show error --> 
-                    <span class="help-block red">
-                        <strong>{{ $errors->first('branch_city') }}</strong>
-                    </span>
-                @endif
-              </div>
-            </div>
-
-
-            <!-- Text area -->
-              
-            <div class="form-group {{ $errors->has('branch_description') ? ' has-error' : '' }}">
-              <label class="col-md-3 control-label">Project Description</label>
-                <div class="col-md-7 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-pencil"></i></span>
-                        <textarea class="form-control" name="branch_description" placeholder="Project Description">{{ old('branch_description') }}</textarea>
-              </div>
-              @if ($errors->has('branch_description')) <!-- show error --> 
-                  <span class="help-block red">
-                      <strong>{{ $errors->first('branch_description') }}</strong>
+                      <strong>{{ $errors->first('customer_address') }}</strong>
                   </span>
               @endif
               </div>

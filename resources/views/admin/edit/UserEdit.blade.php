@@ -133,21 +133,21 @@
                        <input class="field" id="pursech" name="pursech" type="checkbox" value="1" autofocus {{ old('checked') }}>
                  
                                <span class="permission">Sales</span>
-                        <input class="field" id="sales" name="sales" type="checkbox" value="1" autofocus
+                        <input class="field" id="sales" name="sales" type="checkbox" value="1" autofocus>
                  
                         <span class="permission">Return</span>
                         <input class="field" id="return2" name="return" type="checkbox" value="1" autofocus {{ old('checked') }}>
-                 
+                        <br>
                         <span class="permission">Sales History</span>
                         <input class="field" id="sales_history" name="sales_history" type="checkbox" value="1" autofocus {{ old('checked') }}>
                  
                         <span class="permission">Accounts</span>
                         <input class="field" id="accounts" name="accounts" type="checkbox" value="1" autofocus {{ old('checked') }}>
 
-                       <span class="permission">Add New Employee</span>
+                       <span class="permission">Admin</span>
                        <input class="field" id="employee" name="employee" type="checkbox" value="1" autofocus {{ old('checked') }}>
-                 
-                        <span class="permission">All Branches</span>
+                      <br>
+                        <span class="permission">Super Admin</span>
                         <input class="field" id="all_branch" name="all_branch" type="checkbox" value="1" autofocus {{ old('checked') }}>
                                </div>
                                </div>

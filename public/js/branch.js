@@ -38,6 +38,16 @@ $(document).ready(function() {
                     }
                 }
             },
+            customer_mail: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please supply your email address'
+                    },
+                    emailAddress: {
+                        message: 'Please supply a valid email address'
+                    }
+                }
+            },
             branch_phone: {
                 validators: {
                     stringLength: {
@@ -52,6 +62,22 @@ $(document).ready(function() {
                         },
                     }
                 },
+
+            customer_mobile: {
+                validators: {
+                    stringLength: {
+                            min: 11,
+                        },
+                        notEmpty: {
+                            message: 'Please supply your phone number'
+                        },
+                        regexp: {
+                               regexp: /^\+?([(880)/\.\-\s]*[0-9]){11}\s*((ext|x)\s*[0-9]+)*$/,
+                               message: 'The input is not a valid BD phone number'
+                        },
+                    }
+                },
+
             phone: {
                 validators: {
                     stringLength: {
