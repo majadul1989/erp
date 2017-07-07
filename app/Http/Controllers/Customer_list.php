@@ -64,5 +64,25 @@ class Customer_list extends Controller
 		    return view('admin.PDF.Customer');
 
 		} //pdfview
+//Live search functions here
+    public function CST_search(Request $request){
+        $CST_search = $_GET['search'];
+        $customers = Create_customer::where('customer_name', 'LIKE', '%'.$CST_search.'%')
+            ->orWhere("customer_id", "LIKE", '%'.$CST_search.'%')
+            ->get();
+        echo "<ul class='table'>";
+        foreach ($customers as $key => $customer) {
+            echo "<li><a href='".url('/customer_view/').'/'.$customer->customer_id."'>";
+            echo $customer->customer_name;
+            echo "</a></li>";
+        } // Here return all data by json formet
+        echo "</ul>";
+        // echo "<pre>";
+        //print_r($branch);
 
+    }//end of search function
+
+    public function customer_view(Request $Request, $customer_info){
+        echo $Request->customer_info;
+    }
 }

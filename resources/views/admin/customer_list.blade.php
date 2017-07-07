@@ -12,7 +12,7 @@
     @include('admin.edit.branch_edit')
 <form class="form-group form-margin-top">
   <div class="col-sm-4 padding">
-    <input class="form-control" onkeyup="load()" ="" id="search" name="search" type="text" placeholder="Search...">
+    <input class="form-control" onkeyup="load()" id="search" name="search" type="text" placeholder="Search...">
     <div style="display: none;" id="search_ul">
       
     </div>
@@ -101,7 +101,7 @@ function edit(edit_id){
 //live search functions
 function load(){
  var search = $('#search').val();
- var url = "{{url('/search')}}";
+ var url = "{{url('/CST_search')}}";
  var search_val = 'search='+search;
  $(".col-md-10").on("click", function(){
      $("#search_ul").slideUp();

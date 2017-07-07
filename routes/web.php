@@ -49,16 +49,21 @@ Route::get('/EmpDelete/{id}','employee_list@EmpDelete');
 // Update functions
 Route::POST('/userUpdate/{id}','employee_list@userUpdate');
 //Create_customer fucntions //
-Route::get('/Create_customer','Create_customer@index');
 
 
 //***************** Customer Functions*******************//
+Route::get('/Create_customer','Create_customer@index');
 Route::post('/CTR_insert','Create_customer@CTR_insert');
 Route::get('/Customer_list','Customer_list@index');
 // Excel functions
 Route::get('customerExcel/{type}', 'Customer_list@customerExcel');
 // PDF Functions
 Route::get('/customerPdfView',array('as'=>'customerPdfView','uses'=>'Customer_list@customerPdfView'));
+//Live search functions
+Route::get('CST_search','Customer_list@CST_search');
+// Customer View functions
+Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
+
 });
 Auth::routes();
 
