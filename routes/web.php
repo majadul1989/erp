@@ -64,7 +64,16 @@ Route::get('CST_search','Customer_list@CST_search');
 // Customer View functions
 Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
 
-});
+
+
+//***************** Company Functions*******************//
+// Company Functions
+Route::get('/Add_Company','Add_Company@index');
+
+
+
+
+}); // Author Function End
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

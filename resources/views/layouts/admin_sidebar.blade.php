@@ -20,7 +20,20 @@ $url = Request::route()->getName();
 				    <li><a class="{{ Request::path() == 'Branch_list' ? 'active' : '' }}" href="{{url('/Branch_list')}}"> List of Branches </a></li>
 				    </ul>
 			</li>
-			<li><a  href="#">Company</a></li>
+			<li>
+				<a class="dropdown">Company <i class="local fa fa-chevron-circle-down"></i></a>
+			    	<?php // active dropdwon and active page functions
+			    	if(Request::path() == 'Add_Company' || Request::path() == 'Company_list' ){
+			    		$display = "block";
+			    	}else{
+			    		$display = "none";
+			    	} 
+			    	?>
+				    <ul class="sub_menu" style="display:{{$display}}" >
+				     <li><a class="{{ Request::path() == 'Add_Company' ? 'active' : '' }}" href="{{url('/Add_Company')}}"> Add Company </a></li>
+				    <li><a class="{{ Request::path() == 'Company_list' ? 'active' : '' }}" href="{{url('/Company_list')}}"> List of Companies </a></li>
+				    </ul>
+			</li>
 			<li>
 				<a class="dropdown">Sale Department <i class="local fa fa-chevron-circle-down"></i></a>
 			    	<?php // active dropdwon and active page functions
