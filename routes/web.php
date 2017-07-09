@@ -69,8 +69,18 @@ Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
 //***************** Company Functions*******************//
 // Company Functions
 Route::get('/Add_Company','Add_Company@index');
+// company inseted 
 Route::post('/CMP_insert','Add_Company@CMP_insert');
-
+// company list 
+Route::get('/Company_list','Company_list@index');
+// Company list view by Excel
+Route::get('companyExcel/{type}', 'Company_list@companyExcel');
+// PDF Functions
+Route::get('/companyPdfView',array('as'=>'companyPdfView','uses'=>'Company_list@companyPdfView'));
+//Live search functions
+Route::get('CMP_search','Company_list@CMP_search');
+// Company View functions
+Route::get('/company_view/{company_info}','Company_list@company_view');
 
 
 
