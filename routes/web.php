@@ -69,6 +69,7 @@ Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
 //***************** Company Functions*******************//
 // Company Functions
 Route::get('/Add_Company','Add_Company@index');
+Route::post('/CMP_insert','Add_Company@CMP_insert');
 
 
 

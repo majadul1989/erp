@@ -18,6 +18,16 @@ $(document).ready(function() {
                     }
                 }
             },
+            company_name: {
+                validators: {
+                        stringLength: {
+                        min: 2,
+                    },
+                        notEmpty: {
+                        message: 'Please supply your company name !'
+                    }
+                }
+            },
              last_name: {
                 validators: {
                      stringLength: {
@@ -38,16 +48,7 @@ $(document).ready(function() {
                     }
                 }
             },
-            customer_mail: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please supply your email address'
-                    },
-                    emailAddress: {
-                        message: 'Please supply a valid email address'
-                    }
-                }
-            },
+           
             branch_phone: {
                 validators: {
                     stringLength: {
@@ -63,10 +64,46 @@ $(document).ready(function() {
                     }
                 },
 
-            customer_mobile: {
-                validators: {
-                    stringLength: {
-                            min: 11,
+                customer_mail: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please supply your email address'
+                        },
+                        emailAddress: {
+                            message: 'Please supply a valid email address'
+                        }
+                    }
+                },
+
+                customer_mobile: {
+                    validators: {
+                        stringLength: {
+                                min: 11,
+                        },
+                        notEmpty: {
+                            message: 'Please supply your phone number'
+                        },
+                        regexp: {
+                               regexp: /^\+?([(880)/\.\-\s]*[0-9]){11}\s*((ext|x)\s*[0-9]+)*$/,
+                               message: 'The input is not a valid BD phone number'
+                        },
+                    }
+                },
+                company_mail: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Please supply your email address'
+                        },
+                        emailAddress: {
+                            message: 'Please supply a valid email address'
+                        }
+                    }
+                },
+
+                company_mobile: {
+                    validators: {
+                        stringLength: {
+                                min: 11,
                         },
                         notEmpty: {
                             message: 'Please supply your phone number'
