@@ -65,7 +65,6 @@ Route::get('CST_search','Customer_list@CST_search');
 Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
 
 
-
 //***************** Company Functions*******************//
 // Company Functions
 Route::get('/Add_Company','Add_Company@index');
@@ -82,6 +81,10 @@ Route::get('CMP_search','Company_list@CMP_search');
 // Company View functions
 Route::get('/company_view/{company_info}','Company_list@company_view');
 
+
+//***************** Purchase Functions*******************//
+// Purchase Functions
+Route::get('/Purchase','Purchase@index');
 
 
 }); // Author Function End
