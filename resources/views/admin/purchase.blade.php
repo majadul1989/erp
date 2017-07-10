@@ -87,7 +87,7 @@
                         <div class="input-group">
                           <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="product_type" class="form-control selectpicker" data-live-search="true">
-                            <option value=" " >Please select your purchase company</option>
+                            <option value=" " >Please Select Product Type</option>
                             <option value="per_kg" >Per kg</option>
                             <option value="per_pice" >Per Pice</option>
                             <option value="per_metter" >Per Mitter</option>

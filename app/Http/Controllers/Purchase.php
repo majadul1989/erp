@@ -104,9 +104,9 @@ public function ps_insert(Request $request){
             ]
         );
     if ($db == TRUE) {
-    	return Redirect::back()->with('message','Companies Successfuly Added !');
+    	return Redirect::back()->with('message','Purchase Successfuly !');
     }else{
-    	return Redirect::back()->with('message','Companies Do Not Successfuly Added !');
+    	return Redirect::back()->with('message','Purchase Do Not Successfuly !');
     }
 
         
