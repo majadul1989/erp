@@ -63,6 +63,12 @@ Route::get('/customerPdfView',array('as'=>'customerPdfView','uses'=>'Customer_li
 Route::get('CST_search','Customer_list@CST_search');
 // Customer View functions
 Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
+//Edit function
+Route::get('/customer_edit','Customer_list@customer_edit');
+// Update functions
+Route::POST('/customerUpdate/{id}','Customer_list@customerUpdate');
+// Delete Functions
+Route::get('/Customer_delete/{id}','Customer_list@Customer_delete');
 
 
 //***************** Company Functions*******************//

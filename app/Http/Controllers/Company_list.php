@@ -85,16 +85,16 @@ class Company_list extends Controller
         echo $Request->company_info;
     }
 
-    public function company_edit(Request $Request){ // Request to show data for edit by ajax functions
-    	$edit_id = $_GET['edit_id'];
-    	$branch_edit_id =  $Request->edit_id; // Here catch a variable for url 
-    	$branches = DB::table('Companies')
-    		 			->where('company_id', $branch_edit_id) // Here use a condition
-    					->join('Users', 'users.id', '=', 'Companies.company_create_user_id')  // Here Joning data with user table
-    					->first();
-    	return response()->json($branches); // Here return all data by json formet
-    	
-    }
+public function company_edit(Request $Request){ // Request to show data for edit by ajax functions
+	$edit_id = $_GET['edit_id'];
+	$branch_edit_id =  $Request->edit_id; // Here catch a variable for url 
+	$branches = DB::table('Companies')
+		 			->where('company_id', $branch_edit_id) // Here use a condition
+					->join('Users', 'users.id', '=', 'Companies.company_create_user_id')  // Here Joning data with user table
+					->first();
+	return response()->json($branches); // Here return all data by json formet
+	
+}
 
 
 
