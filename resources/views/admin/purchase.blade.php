@@ -16,21 +16,21 @@
                 <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                 <fieldset>
                 <!-- Dropdown-->
-                <div class="form-group {{ $errors->has('purchase_ps_id') ? ' has-error' : '' }}">
+                <div class="form-group {{ $errors->has('company_ps_id') ? ' has-error' : '' }}">
                   <label class="col-md-3 control-label">Select Company</label>  
                     <div class="col-md-7 inputGroupContainer">
                       <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                          <select name="purchase_ps_id" class="form-control selectpicker" data-live-search="true">
+                          <select name="company_ps_id" class="form-control selectpicker" data-live-search="true">
                           <option value=" " >Please select your purchase company</option>
                           @foreach ($companies_list as $key => $data)
                           <option value="{{$data->company_id}}">{{$data->company_name}}</option>
                           @endforeach
                           </select>
                       </div>
-                           @if ($errors->has('purchase_ps_id')) <!-- show error --> 
+                           @if ($errors->has('company_ps_id')) <!-- show error --> 
                               <span class="help-block red">
-                                  <strong>{{ $errors->first('purchase_ps_id') }}</strong>
+                                  <strong>{{ $errors->first('company_ps_id') }}</strong>
                              </span>
                           @endif
                     </div>

@@ -97,6 +97,7 @@ Route::POST('/companyUpdate/{id}','Company_list@companyUpdate');
 //***************** Purchase Functions*******************//
 // Purchase Functions
 Route::get('/Purchase','Purchase@index');
+Route::post('/ps_insert','Purchase@ps_insert');
 
 
 }); // Author Function End
