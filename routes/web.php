@@ -94,7 +94,6 @@ Route::get('/company_delete/{id}','Company_list@company_delete');
 Route::POST('/companyUpdate/{id}','Company_list@companyUpdate');
 
 
-
 //***************** Purchase Functions*******************//
 // Purchase Functions
 Route::get('/Purchase','Purchase@index');
