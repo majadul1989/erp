@@ -48,9 +48,9 @@ Route::get('/UserEdit','employee_list@UserEdit');
 Route::get('/EmpDelete/{id}','employee_list@EmpDelete');
 // Update functions
 Route::POST('/userUpdate/{id}','employee_list@userUpdate');
+
+
 //Create_customer fucntions //
-
-
 //***************** Customer Functions*******************//
 Route::get('/Create_customer','Create_customer@index');
 Route::post('/CTR_insert','Create_customer@CTR_insert');
@@ -66,20 +66,27 @@ Route::get('/customer_view/{customer_info}','Customer_list@customer_view');
 
 
 //***************** Company Functions*******************//
-// Company Functions
+// Index Functions
 Route::get('/Add_Company','Add_Company@index');
-// company inseted 
+// inserted functions
 Route::post('/CMP_insert','Add_Company@CMP_insert');
-// company list 
+// list  functions
 Route::get('/Company_list','Company_list@index');
-// Company list view by Excel
+// list view by Excel
 Route::get('companyExcel/{type}', 'Company_list@companyExcel');
 // PDF Functions
 Route::get('/companyPdfView',array('as'=>'companyPdfView','uses'=>'Company_list@companyPdfView'));
 //Live search functions
 Route::get('CMP_search','Company_list@CMP_search');
-// Company View functions
+// View functions
 Route::get('/company_view/{company_info}','Company_list@company_view');
+//Edit function
+Route::get('/company_edit','Company_list@company_edit');
+// Delete Functions
+Route::get('/company_delete/{id}','Company_list@company_delete');
+// Update functions
+Route::POST('/companyUpdate/{id}','Company_list@companyUpdate');
+
 
 
 //***************** Purchase Functions*******************//

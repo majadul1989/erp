@@ -14,68 +14,25 @@
             <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
             <fieldset>
             <!-- Success message -->
-           <h2>Company Informations</h2><hr>
+           <h2>Products Purchase</h2><hr>
 
             <!-- Text input-->
-            <div class="form-group{{ $errors->has('company_name') ? ' has-error' : '' }}">
+            <div class="form-group{{ $errors->has('p_name') ? ' has-error' : '' }}">
                     <label class="col-md-3 control-label">Company Name</label>
                 <div class="col-md-7 inputGroupContainer">
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="company_name" type="text" placeholder="Name" class="form-control" name="company_name" value="{{ old('company_name') }}"  autofocus required>
+                            <input id="p_name" type="text" placeholder="Name" class="form-control" name="p_name" value="{{ old('p_name') }}"  autofocus required>
                     </div>
-                        @if ($errors->has('company_name')) <!-- show error --> 
+                        @if ($errors->has('p_name')) <!-- show error --> 
                             <span class="help-block red">
-                                <strong>{{ $errors->first('company_name') }}</strong>
+                                <strong>{{ $errors->first('p_name') }}</strong>
                             </span>
                         @endif
                 </div>
             </div>
             <!-- Text input-->
-            <div class="form-group{{ $errors->has('company_mobile') ? ' has-error' : '' }}">
-                    <label class="col-md-3 control-label">Company Mobile</label>
-                <div class="col-md-7 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
-                            <input id="company_mobile" type="text" placeholder="Mobile" class="form-control" name="company_mobile" value="{{ old('company_mobile') }}"  autofocus required>
-                    </div>
-                        @if ($errors->has('company_mobile')) <!-- show error --> 
-                            <span class="help-block red">
-                                <strong>{{ $errors->first('company_mobile') }}</strong>
-                            </span>
-                        @endif
-                </div>
-            </div>
-            <!-- Text input-->
-            <div class="form-group{{ $errors->has('company_mail') ? ' has-error' : '' }}">
-                    <label class="col-md-3 control-label">Company Email</label>
-                <div class="col-md-7 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                            <input id="company_mail" placeholder="E-mail" type="text" class="form-control" name="company_mail" value="{{ old('company_mail') }}"  autofocus required>
-                    </div>
-                        @if ($errors->has('company_mail')) <!-- show error --> 
-                            <span class="help-block red">
-                                <strong>{{ $errors->first('company_mail') }}</strong>
-                            </span>
-                        @endif
-                </div>
-            </div>
-            <!-- Text area -->
-            <div class="form-group {{ $errors->has('company_address') ? ' has-error' : '' }}">
-              <label class="col-md-3 control-label">Company Address</label>
-                <div class="col-md-7 inputGroupContainer">
-                <div class="input-group">
-                    <span class="input-group-addon"><i class="glyphicon glyphicon-home"></i></span>
-                        <textarea class="form-control" name="company_address" placeholder="Address">{{ old('company_address') }}</textarea>
-              </div>
-              @if ($errors->has('company_address')) <!-- show error --> 
-                  <span class="help-block red">
-                      <strong>{{ $errors->first('company_address') }}</strong>
-                  </span>
-              @endif
-              </div>
-            </div>
+            
             <hr>
             <!-- Button -->
             <div class="form-group">

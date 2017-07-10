@@ -9,7 +9,7 @@
             {{ session('message') }}
         </div>
     @endif
-    @include('admin.edit.branch_edit')
+    @include('admin.edit.company')
 <form class="form-group form-margin-top">
   <div class="col-sm-4 padding">
     <input class="form-control" onkeyup="load()" id="search" name="search" type="text" placeholder="Search...">
@@ -60,7 +60,7 @@
           <td>{{$company->company_created}}</td>
           <td>
           <a onclick="edit({{$company->company_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
-          || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/delete/').'/'.$company->company_id}}">Delete</a></td>
+          || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/company_delete/').'/'.$company->company_id}}">Delete</a></td>
       </tr>
     @endforeach
 
@@ -72,7 +72,7 @@ window.urls=0;
 function edit(edit_id){
     $(".loadimg").show();
   var edit_id = 'edit_id='+edit_id;
-  var url = "{{url('/edit')}}";
+  var url = "{{url('/company_edit')}}";
   $.ajax({
     type: "GET",
     url: url,
@@ -80,17 +80,16 @@ function edit(edit_id){
     success:function(data){
     $(".loadimg").fadeOut();
     if(window.urls==0){
-       window.urls=$("#branch_id").attr("action");
+       window.urls=$("#company_id").attr("action");
     }
-    $("#branch_id").attr("action",window.urls+"/"+data.branch_id);
-    $("#branch_id").val(data.branch_id);
-    $("#branch_name").val(data.branch_name);
-    $("#branch_email").val(data.branch_email);
-    $("#branch_phone").val(data.branch_phone);
-    $("#branch_address").val(data.branch_address);
-    $("#branch_city").val(data.branch_city);
+    $("#company_id").attr("action",window.urls+"/"+data.company_id);
+    $("#company_id").val(data.company_id);
+    $("#company_name").val(data.company_name);
+    $("#company_mail").val(data.company_mail);
+    $("#company_mobile").val(data.company_mobile);
+    $("#company_address").val(data.company_address);
     $("#branch_description").val(data.branch_description);
-    $("#favoritesModalLabel").html('Information of <b><i>'+ data.branch_name+'</b></i>').show();
+    $("#favoritesModalLabel").html('Information of <b><i>'+ data.company_name+'</b></i>').show();
     console.log();
 
    
