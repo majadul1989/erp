@@ -156,6 +156,21 @@ $(document).ready(function() {
                     }
                 }
             },
+            company_ps_id: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your Company'
+                    }
+                }
+            },
+
+            product_type: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please select your product type'
+                    }
+                }
+            },
              branch_city_id: {
                 validators: {
                     notEmpty: {

@@ -45,7 +45,7 @@ $url = Request::route()->getName();
 			{{-- Purchase Menu --}}
 				<a class="dropdown">Purchase Department <i class="local fa fa-chevron-circle-down"></i></a>
 			    	<?php // active dropdwon and active page functions
-			    	if(Request::path() == 'Purchase' || Request::path() == 'Purchase_history' || Request::path() == 'Add_Company' || Request::path() == 'Company_list' ){
+			    	if(Request::path() == 'Purchase' || Request::path() == 'Purchase_history' || Request::path() == 'Add_Company' || Request::path() == 'Company_list' || Request::path() == 'Stock_list' ){
 			    		$display = "block";
 			    	}else{
 			    		$display = "none";
@@ -56,6 +56,7 @@ $url = Request::route()->getName();
 				     <li><a class="{{ Request::path() == 'Purchase_history' ? 'active' : '' }}" href="{{url('/Purchase_history')}}"> Purchase Histories </a></li>
 				     <li><a class="{{ Request::path() == 'Add_Company' ? 'active' : '' }}" href="{{url('/Add_Company')}}"> Add Company </a></li>
 				    <li><a class="{{ Request::path() == 'Company_list' ? 'active' : '' }}" href="{{url('/Company_list')}}"> List of Companies </a></li>
+				    <li><a class="{{ Request::path() == 'Stock_list' ? 'active' : '' }}" href="{{url('/Stock_list')}}"> Stocks </a></li>
 				    </ul>
 			</li>
 			<li>
