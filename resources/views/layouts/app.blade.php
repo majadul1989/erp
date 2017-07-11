@@ -16,9 +16,16 @@
     <!-- Scripts -->
     <!-- branch validation js -->
     <script src="{{ asset('js/branch.js') }}"></script>
+    
     {{-- Dropdown Style script --}}
     <script src="{{ asset('js/bootstrap-select.js') }}"></script>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- Date picker --}}
+    <link href="{{ asset('/css/bootstrap-datepicker.css') }}" rel="stylesheet">
+    <link href="{{ asset('/css/bootstrap-datepicker.standalone.css') }}" rel="stylesheet">
+
+
+    {{-- custom style --}}
     <link href="{{ asset('/css/style.css') }}" rel="stylesheet">
     <!-- font-Awesome -->
     <link href="{{ asset('/css/fontAwasme/css/font-awesome.css') }}" rel="stylesheet">
@@ -86,6 +93,7 @@
         </nav>
         @yield('content')
     </div>
+    <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrap-datepicker.js') }}"></script>
     <script type="text/javascript" src="{{ asset('/css/bootstrap/js/bootstrapValidator.js') }}"></script>
 
 

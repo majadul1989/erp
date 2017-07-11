@@ -5,11 +5,11 @@ $url = Request::route()->getName();
 <div class="col-md-2 sidebar">
 	<div class="position_sidebar" data-spy="affix" data-offset-top="60">
 		<ul class="menu">
-			<li><a class="{{ Request::path() == 'home' ? 'active' : '' }}" href="{{url('/home')}}">Dashboard</a></li>
+			<li><a class="{{ Request::path() == 'home' ? 'active2' : '' }}" href="{{url('/home')}}">Dashboard</a></li>
 			<li>
 				{{-- Branch Menu --}}
 				<a class="dropdown">Branch <i class="local fa fa-chevron-circle-down"></i></a>
-			    	<?php // active dropdwon and active page functions
+			    	<?php // active2 dropdwon and active2 page functions
 			    	if(Request::path() == 'Add_Branch' || Request::path() == 'Branch_list' ){
 			    		$display = "block";
 			    	}else{
@@ -17,14 +17,14 @@ $url = Request::route()->getName();
 			    	} 
 			    	?>
 				    <ul class="sub_menu" style="display:{{$display}}" >
-				     <li><a class="{{ Request::path() == 'Add_Branch' ? 'active' : '' }}" href="{{url('/Add_Branch')}}"> Add Branch </a></li>
-				    <li><a class="{{ Request::path() == 'Branch_list' ? 'active' : '' }}" href="{{url('/Branch_list')}}"> List of Branches </a></li>
+				     <li><a class="{{ Request::path() == 'Add_Branch' ? 'active2' : '' }}" href="{{url('/Add_Branch')}}"> Add Branch </a></li>
+				    <li><a class="{{ Request::path() == 'Branch_list' ? 'active2' : '' }}" href="{{url('/Branch_list')}}"> List of Branches </a></li>
 				    </ul>
 			</li>
 			<li>
 			{{-- Sale Menu --}}
 				<a class="dropdown">Sale Department <i class="local fa fa-chevron-circle-down"></i></a>
-			    	<?php // active dropdwon and active page functions
+			    	<?php // active2 dropdwon and active2 page functions
 			    	if(Request::path() == 'Create_customer' || Request::path() == 'Customer_list' ){
 			    		$display = "block";
 			    	}else{
@@ -32,19 +32,19 @@ $url = Request::route()->getName();
 			    	} 
 			    	?>
 				    <ul class="sub_menu" style="display:{{$display}}" >
-				     <li><a class="{{ Request::path() == 'Sale' ? 'active' : '' }}" href="{{url('/Sale')}}"> Sale </a></li>
-				     <li><a class="{{ Request::path() == 'Sale_history' ? 'active' : '' }}" href="{{url('/Sale_history')}}"> Sale Histories </a></li>
-				     <li><a class="{{ Request::path() == 'Branch_sale_history' ? 'active' : '' }}" href="{{url('/Branch_sale_history')}}">Branch Sale Histories </a></li>
-				     <li><a class="{{ Request::path() == 'Create_customer' ? 'active' : '' }}" href="{{url('/Create_customer')}}"> Add New Customer </a></li>
-				     <li><a class="{{ Request::path() == 'Customer_sale_history' ? 'active' : '' }}" href="{{url('/Customer_sale_history')}}">Customers History </a></li>
-				    <li><a class="{{ Request::path() == 'Customer_list' ? 'active' : '' }}" href="{{url('/Customer_list')}}"> List of Customer </a></li>
+				     <li><a class="{{ Request::path() == 'Sale' ? 'active2' : '' }}" href="{{url('/Sale')}}"> Sale </a></li>
+				     <li><a class="{{ Request::path() == 'Sale_history' ? 'active2' : '' }}" href="{{url('/Sale_history')}}"> Sale Histories </a></li>
+				     <li><a class="{{ Request::path() == 'Branch_sale_history' ? 'active2' : '' }}" href="{{url('/Branch_sale_history')}}">Branch Sale Histories </a></li>
+				     <li><a class="{{ Request::path() == 'Create_customer' ? 'active2' : '' }}" href="{{url('/Create_customer')}}"> Add New Customer </a></li>
+				     <li><a class="{{ Request::path() == 'Customer_sale_history' ? 'active2' : '' }}" href="{{url('/Customer_sale_history')}}">Customers History </a></li>
+				    <li><a class="{{ Request::path() == 'Customer_list' ? 'active2' : '' }}" href="{{url('/Customer_list')}}"> List of Customer </a></li>
 				    </ul>
 			</li>
 
 			<li>
 			{{-- Purchase Menu --}}
 				<a class="dropdown">Purchase Department <i class="local fa fa-chevron-circle-down"></i></a>
-			    	<?php // active dropdwon and active page functions
+			    	<?php // active2 dropdwon and active2 page functions
 			    	if(Request::path() == 'Purchase' || Request::path() == 'Purchase_history' || Request::path() == 'Add_Company' || Request::path() == 'Company_list' || Request::path() == 'Stock_list' ){
 			    		$display = "block";
 			    	}else{
@@ -52,17 +52,17 @@ $url = Request::route()->getName();
 			    	} 
 			    	?>
 				    <ul class="sub_menu" style="display:{{$display}}" >
-				     <li><a class="{{ Request::path() == 'Purchase' ? 'active' : '' }}" href="{{url('/Purchase')}}"> Purchase </a></li>
-				     <li><a class="{{ Request::path() == 'Purchase_history' ? 'active' : '' }}" href="{{url('/Purchase_history')}}"> Purchase Histories </a></li>
-				     <li><a class="{{ Request::path() == 'Add_Company' ? 'active' : '' }}" href="{{url('/Add_Company')}}"> Add Company </a></li>
-				    <li><a class="{{ Request::path() == 'Company_list' ? 'active' : '' }}" href="{{url('/Company_list')}}"> List of Companies </a></li>
-				    <li><a class="{{ Request::path() == 'Stock_list' ? 'active' : '' }}" href="{{url('/Stock_list')}}"> Stocks </a></li>
+				     <li><a class="{{ Request::path() == 'Purchase' ? 'active2' : '' }}" href="{{url('/Purchase')}}"> Purchase </a></li>
+				     <li><a class="{{ Request::path() == 'Purchase_history' ? 'active2' : '' }}" href="{{url('/Purchase_history')}}"> Purchase Histories </a></li>
+				     <li><a class="{{ Request::path() == 'Add_Company' ? 'active2' : '' }}" href="{{url('/Add_Company')}}"> Add Company </a></li>
+				    <li><a class="{{ Request::path() == 'Company_list' ? 'active2' : '' }}" href="{{url('/Company_list')}}"> List of Companies </a></li>
+				    <li><a class="{{ Request::path() == 'Stock_list' ? 'active2' : '' }}" href="{{url('/Stock_list')}}"> Stocks </a></li>
 				    </ul>
 			</li>
 			<li>
 			{{-- Employee Menu --}}
 				<a class="dropdown">Employee Department<i class="local fa fa-chevron-circle-down"></i></a>
-			    	<?php // active dropdwon and active page functions
+			    	<?php // active2 dropdwon and active2 page functions
 			    	if(Request::path() == 'register' || Request::path() == 'employee_list' ){
 			    		$display = "block";
 			    	}else{
@@ -70,8 +70,8 @@ $url = Request::route()->getName();
 			    	} 
 			    	?>
 				    <ul class="sub_menu" style="display:{{$display}}" >
-				     <li><a class="{{ Request::path() == 'register' ? 'active' : '' }}" href="{{url('/register')}}"> Add Employee </a></li>
-				    <li><a class="{{ Request::path() == 'employee_list' ? 'active' : '' }}" href="{{url('/employee_list')}}"> List of Employees </a></li>
+				     <li><a class="{{ Request::path() == 'register' ? 'active2' : '' }}" href="{{url('/register')}}"> Add Employee </a></li>
+				    <li><a class="{{ Request::path() == 'employee_list' ? 'active2' : '' }}" href="{{url('/employee_list')}}"> List of Employees </a></li>
 				    </ul>
 			</li>
 			<li><a  href="#">Financial Department</a></li>

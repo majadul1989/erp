@@ -38,10 +38,11 @@
 /* 
  active color
 */
-.position_sidebar ul li .active {
+.position_sidebar ul li .active2 {
     background-color: #41a430 !important;
+
 }
-.active::after {
+.active2::after {
     border-bottom: 7px solid transparent;
     border-right: 8px solid #dff0d8;
     border-top: 7px solid transparent;
@@ -168,3 +169,9 @@ url mouser color
 .permission {
     padding-left: 16px;
  }
+
+/*left Padding*/
+.left-padding {
+    padding-left: 5px !important;
+}
+

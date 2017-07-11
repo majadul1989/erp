@@ -11,49 +11,77 @@
     @endif
     @include('admin.edit.purchase_edit')
 <form class="form-group form-margin-top">
-  <div class="col-sm-4 padding">
-    <input class="form-control" onkeyup="load()" ="" id="search" name="search" type="text" placeholder="Search...">
+  <div class="col-sm-2 padding">
+    <input class="form-control" onkeyup="load()" id="search" name="search" type="text" placeholder="Search...">
     <div style="display: none;" id="search_ul">
       
     </div>
   </div>
-
-  <div class="col-sm-1 padding">   
+  <div class="col-sm-2 padding left-padding">
+    <div class="form-group">
+      <div class='input-group date' id='datetimepicker1'>
+        <input type='text' name="date" id="date" class="form-control" />
+        <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-2 padding left-padding">
+    <div class="form-group">
+      <div class='input-group date' id='datetimepicker2'>
+        <input type='text' name="date2" id="date2" class="form-control" />
+        <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-1 padding left-padding">   
     <button type="submit" class="btn btn-default col-sm-12"><span class="glyphicon glyphicon-search"></span> Search</button>
   </div>
+</form>
 
-  <div class="col-md-7">
-      <div class="col-sm-3 "> 
-      <a href="{{url('/downloadExcel/xlsx')}}" class="btn btn-primary col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xlsx </a>
-      </div>
-      <div class="col-sm-3"> 
-      <a href="{{url('/downloadExcel/xls')}}" class="btn btn-warning col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.xls </a>
-      </div>
-      <div class="col-sm-3"> 
+  <div class="col-md-4">
+      <div class="col-sm-6"> 
       <a href="{{url('/downloadExcel/csv')}}" class="btn btn-success col-sm-12"><span class="glyphicon glyphicon-download-alt"></span> Download.csv </a>
       </div>
-      <div class="col-sm-3 padding"> 
+      <div class="col-sm-6 padding"> 
       <a href="{{ route('pdfview', ['download'=>'pdf']) }}" class="btn btn-danger col-sm-11"><span class="glyphicon glyphicon-download-alt"></span> Download.pdf </a>
       </div> 
   </div> <!-- col-md-3 -->
-</form>
 <div class="clear" id="example" style="clear: both;"></div>
 <table class="table form-margin-top">
-   <tr class="bnt btn-success ">
+   <tr class="bnt btn-success">
        <th>Sl. No.</th>
-       <th>Branch Name</th>
-       <th>Branch Phone</th>
-       <th>Branch E-mail</th>
-       <th>Branch Adress</th>
+       <th>Brand</th>
+       <th>Name</th>
+       <th>Type</th>
+       <th>Quantity</th>
+       <th>P.Price</th>
+       <th>S.Price</th>
+       <th>Company</th>
        <th>Created by</th>
-       <th>Create Date</th>
-       <th>Action</th>
+       <th>P.Date</th>
+       <th>Actions</th>
    </tr>
-   <?php
-    echo '<pre>';
-    print_r($purchase_list); ?>
-   
-
+   @foreach($purchase_list as $key => $purchase)
+   <tr>
+   <td>{{$loop->index+1}}</td>
+   <td>{{$purchase->product_brand}}</td>
+   <td>{{$purchase->product_name}}</td>
+   <td>{{$purchase->product_type}} - {{$purchase->per_field}}</td>
+   <td>{{$purchase->product_quantity}}</td>
+   <td>{{$purchase->product_p_price}}</td>
+   <td>{{$purchase->product_sale_price}}</td>
+   <td>{{$purchase->company_name}}</td>
+   <td>{{$purchase->name}}</td>
+   <td>{{$purchase->product_date}}</td>
+   <td>
+       <a onclick="users({{$purchase->product_id}})" data-toggle="modal" data-target="#favoritesModal" href="#">Edit</a>
+       || <a onclick="return confirm('Are you sure you want to delete?')" href="{{url('/EmpDelete/').'/'.$purchase->product_id}}">Delete</a></td>
+   </tr>
+   @endforeach
 </table>
 <img style="display: none;" class="loadimg" src="{{ asset('/img/load.gif') }}">
 
@@ -113,6 +141,19 @@ function load(){
     }
   });
 }
+// Date functions
+$(document).ready(function(){
+        $('#datetimepicker1').datepicker({
+          format: 'mm-dd-yyyy',
+          todayHighlight: true,
+          autoclose: true,
+        });
+        $('#datetimepicker2').datepicker({
+          format: 'mm-dd-yyyy',
+          todayHighlight: true,
+          autoclose: true,
+        });
+ });
 
 </script>
 {!! $purchase_list->links() !!}

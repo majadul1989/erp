@@ -88,10 +88,10 @@
                           <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
                             <select name="product_type" class="form-control selectpicker" data-live-search="true">
                             <option value=" " >Please Select Product Type</option>
-                            <option value="per_kg" >Per kg</option>
-                            <option value="per_pice" >Per Pice</option>
-                            <option value="per_metter" >Per Mitter</option>
-                            <option value="size" >Size</option>
+                            <option value="Per KG" >Per kg</option>
+                            <option value="Per Pice" >Per Pice</option>
+                            <option value="Per Mitter" >Per Mitter</option>
+                            <option value="Size" >Size</option>
                             </select>
                         </div>
                              @if ($errors->has('product_type')) <!-- show error --> 
