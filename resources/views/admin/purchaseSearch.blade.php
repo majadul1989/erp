@@ -67,7 +67,7 @@
        <th>P.Date</th>
        <th>Actions</th>
    </tr>
-   @foreach($purchase_list as $key => $purchase)
+   @foreach($purchase_search as $key => $purchase)
    <tr>
    <td>{{$loop->index+1}}</td>
    <td>{{$purchase->product_brand}}</td>
@@ -162,7 +162,7 @@ $(document).ready(function(){
  });
 
 </script>
-{!! $purchase_list->links() !!}
+{!! $purchase_search->links() !!}
 
 
 </div>

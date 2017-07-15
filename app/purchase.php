@@ -19,4 +19,12 @@ class purchase extends Model
 	    return $purchase_list;
 	}
 
+	public function purchases_select(){
+		$purchase_selectes = DB::table('purchases')
+	            ->join('users', 'users.id', '=', 'purchases.purchase_user_id')
+	            ->join('companies', 'companies.company_id', '=', 'purchases.company_ps_id')
+	            ->get();
+	    return $purchase_selectes;
+	}
+
 }

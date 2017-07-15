@@ -101,6 +101,9 @@ Route::get('/Purchase','Purchase@index');
 Route::post('/ps_insert','Purchase@ps_insert');
 // list functions
 Route::get('/Purchase_history','Purchase_list@index');
+//Live search functions
+Route::get('purchaseSearch','Purchase_list@purchaseSearch');
+// Route::get('searchdata','Purchase_list@searchdata');
 
 
 }); // Author Function End
