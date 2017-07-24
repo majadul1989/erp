@@ -105,6 +105,9 @@ Route::get('/Purchase_history','Purchase_list@index');
 Route::get('purchaseSearch','Purchase_list@purchaseSearch');
 // Route::get('searchdata','Purchase_list@searchdata');
 
+//******************* Sale Functions**********************//
+// Sale Index
+Route::get('/Sale','Sale@index');
 
 }); // Author Function End
 Auth::routes();

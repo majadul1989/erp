@@ -104,14 +104,7 @@ url mouser color
 .dropdown {
 	cursor: pointer;
 }
-/* padding and margin*/
 
-.padding {
-    padding: 0 !important; 
-}
-.margin{
-    margin: 0 !important;
-}
 
 .success {
     background-image: linear-gradient(#dff0d8 100%, #c8e5bc 100%);
@@ -170,8 +163,20 @@ url mouser color
     padding-left: 16px;
  }
 
+/* padding and margin*/
+/*Padding*/
+.padding {
+    padding: 0 !important; 
+}
 /*left Padding*/
 .left-padding {
     padding-left: 5px !important;
 }
 
+/*left Padding*/
+.top-padding {
+    padding-top: 7px !important;
+}
+.margin{
+    margin: 0 !important;
+}
