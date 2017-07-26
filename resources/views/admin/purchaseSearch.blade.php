@@ -15,7 +15,7 @@
     <select name="company_ps_id" class="form-control selectpicker" data-live-search="true">
       <option value="" >Please select your purchase company</option>
       @foreach ($select as $key => $p_data)
-      <option value="{{$p_data->product_id}}">{{$p_data->product_brand}}</option>
+      <option value="{{$p_data->company_id}}">{{$p_data->company_name}}</option>
       @endforeach
     </select>
   </div>
@@ -162,7 +162,8 @@ $(document).ready(function(){
  });
 
 </script>
-{!! $purchase_search->links() !!}
+<!-- {!! $purchase_search->links() !!} -->
+{!!$purchase_search->appends(Request::capture()->except('page'))->render() !!}
 
 
 </div>
